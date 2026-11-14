@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koi Pond Studio</title>
+<style>
+:root{--bg:#f3f5f4;--panel:#fff;--card:#f4f6f5;--text:#16242a;--muted:#5d6b70;--line:rgba(0,40,40,.13);--accent:#1f8f86;--accent-text:#fff;--chat:#16242a;--chat-muted:#5b6b70;--code:#f6fbfa;--code-text:#23404a;--warn:#b4541a}
+:root.dark{--bg:#0b1114;--panel:#11191d;--card:#172226;--text:#e6edf0;--muted:#8fa0a6;--line:rgba(160,200,200,.14);--accent:#5ee0c8;--accent-text:#04121a;--chat:#e6edf7;--chat-muted:#8b97ad;--code:#0a1020;--code-text:#b9c7e6;--warn:#f0a868}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;display:grid;grid-template-columns:minmax(0,1fr) 400px}
+/* preview: a small copy of the chat area, with the names T3 Code uses, so the theme CSS applies as it does in the app */
+#stage{position:relative;min-width:0;height:100vh;display:flex;flex-direction:column;color:var(--chat)}
+[data-workspace-area]{flex:1;min-height:0;display:flex;flex-direction:column}
+.messages-timeline-scroll{flex:1;overflow:auto;padding:28px 40px}
+.col{max-width:46rem;margin:0 auto}
+[data-user-message-bubble]{margin:10px 0 18px auto;width:fit-content;max-width:80%;padding:8px 14px;border-radius:16px;border:1px solid var(--line)}
+.work{color:var(--chat-muted);font-size:13px;margin:8px 0}
+pre{background:var(--code);color:var(--code-text);border:1px solid var(--line);border-radius:10px;padding:12px;font:12.5px/1.5 ui-monospace,Menlo,monospace;overflow:auto}
+form{padding:0 40px 18px}
+[data-slot="composer-host"]{max-width:46rem;margin:0 auto;border:1px solid var(--line);border-radius:18px;padding:14px 14px 10px}
+.ph{color:var(--chat-muted);height:40px}
+.row{display:flex;align-items:center;gap:10px;justify-content:flex-end}
+.row span{color:var(--chat-muted);margin-right:auto;font-size:13px}
+.round{border:0;width:32px;height:32px;border-radius:999px;display:grid;place-items:center}
+.send{background:var(--accent);color:var(--accent-text)}
+#modes{position:absolute;top:12px;left:12px;z-index:2}
+/* settings */
+aside{height:100vh;overflow:auto;background:var(--panel);border-left:1px solid var(--line);padding:18px 18px 28px}
+h1{font-size:19px;margin:0 0 2px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 14px;font-size:13px}
+h2{font-size:13px;margin:20px 0 8px;font-weight:650}
+.card{background:var(--card);border-radius:12px;padding:2px 14px}
+.item{padding:11px 0;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.head{display:flex;align-items:center;gap:10px}
+.head label{flex:1}
+.val{color:var(--muted);font-variant-numeric:tabular-nums;min-width:52px;text-align:right}
+.hint{color:var(--muted);font-size:12px;margin-top:3px}
+input[type=range]{width:100%;margin:8px 0 0;accent-color:var(--accent)}
+.seg{display:inline-flex;background:var(--line);border-radius:9px;padding:2px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;color:var(--text);font:inherit;font-size:13px;padding:4px 10px;border-radius:7px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--panel);box-shadow:0 1px 2px rgba(0,0,0,.18);font-weight:600}
+.switch{appearance:none;width:38px;height:22px;border-radius:999px;background:var(--line);position:relative;cursor:pointer;margin:0;flex:none;transition:background .15s}
+.switch::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3);transition:translate .15s}
+.switch:checked{background:var(--accent)}
+.switch:checked::after{translate:16px 0}
+button.btn{border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:13px;padding:6px 12px;border-radius:9px;cursor:pointer}
+button.btn.primary{background:var(--accent);color:var(--accent-text);border-color:transparent;font-weight:600}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+#meter{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:8px}
+#meter i{display:block;height:100%;background:var(--accent)}
+#size,#note,#status{font-size:12px;color:var(--muted);margin-top:6px}
+#note{color:var(--warn)}
+details{margin-top:14px;font-size:13px;color:var(--muted)}
+details code{font:12px ui-monospace,Menlo,monospace;color:var(--text);word-break:break-all}
+@media (max-width:860px){body{display:block}#stage{height:62vh}aside{height:auto;border-left:0;border-top:1px solid var(--line)}}
+@media (prefers-reduced-motion:reduce){.switch,.switch::after{transition:none}}
+</style>
+</head>
+<body>
+<main id="stage">
+  <div id="modes" class="seg" role="group" aria-label="Preview mode"><button data-mode="dark">Dark</button><button data-mode="light">Light</button></div>
+  <div data-workspace-area="conversation">
+    <div class="messages-timeline-scroll"><div class="col">
+      <div data-user-message-bubble>add a cook time badge to each recipe card</div>
+      <p>Nice idea. Let me look at the recipe card.</p><div class="work">Read and edited app.js +1</div>
+      <p>Done. Every recipe card now shows a <b>cook time badge</b> under its title.</p>
+      <pre>function cookTime(recipe) {
+  const minutes = recipe.prep + recipe.cook;
+  return minutes &lt; 60 ? `${minutes} min` : `${Math.round(minutes / 60)} h`;
+}</pre>
+      <div data-user-message-bubble>ship it</div>
+      <p>Checks passed and the pull request is <b>merged</b>. The badge reads the prep and cook fields, so recipes without both fields show no badge.</p>
+    </div></div>
+    <form data-chat-composer-form="true" onsubmit="return false"><div data-slot="composer-host"><div class="ph">Type / for commands</div><div class="row"><span>Preview of the chat area</span>
+      <button type="button" class="round" aria-label="Stop generation"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="2" y="2" width="8" height="8" rx="1.5"/></svg></button>
+      <button type="button" class="round send" aria-label="Send"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></div></div></form>
+  </div>
+</main>
+<aside>
+  <h1>Koi Pond Studio</h1>
+  <p class="sub">Settings for the Koi Pond theme for T3 Code. The preview is the real theme.</p>
+  <div class="bar">
+    <button class="btn primary" id="save">Save to T3 Code</button>
+    <button class="btn" id="download">Download theme</button>
+    <button class="btn" id="open">Open theme file</button>
+    <button class="btn" id="reset">Reset</button>
+  </div>
+  <div id="meter"><i></i></div>
+  <div id="size"></div><div id="note"></div><div id="status"></div>
+  <div id="panels"></div>
+  <details><summary>How to install the theme</summary>
+    <p><b>Save to T3 Code</b> asks once for the themes folder: <code>~/.t3/userdata/themes</code>. In the folder dialog, press Cmd+Shift+G and paste that path. After that, every change is written to <code>koi-pond.json</code> and T3 Code shows it at once. Choose the theme "Koi Pond" in T3 Code the first time.</p>
+    <p><b>Download theme</b> gives you <code>koi-pond.json</code>. Put it in the themes folder, or send it to a friend. The file keeps its settings: <b>Open theme file</b> loads them back.</p>
+    <p>A theme has no script. So koi cannot follow clicks, be fed, or know the time. The pond follows light and dark mode; the command <code>node cli.js sync</code> sets the time of day from the clock.</p>
+  </details>
+  <input type="file" id="file" accept=".json,application/json" hidden>
+</aside>
+<script src="pond.js"></script>
+<script>
+(() => {
+  const Pond = window.KoiPond, STORE = 'koi-pond-studio', $ = id => document.getElementById(id);
+  const sheet = new CSSStyleSheet(); document.adoptedStyleSheets = [sheet];
+  let stored = {}; try { stored = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (e) {}
+  let config = Pond.normalize(stored.config), result = null, folder = null, timer = 0;
+
+  function setMode(mode) {
+    document.documentElement.classList.toggle('dark', mode === 'dark');
+    document.querySelectorAll('#modes button').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === mode));
+    stored.mode = mode; remember();
+  }
+  function remember() { try { localStorage.setItem(STORE, JSON.stringify({ config, mode: stored.mode })); } catch (e) {} }
+
+  // one control per row of the settings table
+  const controls = {};
+  function panel() {
+    const root = $('panels'); root.textContent = '';
+    const groups = [...new Set(Pond.SETTINGS.map(s => s.group))];
+    for (const g of groups) {
+      const h = document.createElement('h2'); h.textContent = g; root.append(h);
+      const card = document.createElement('div'); card.className = 'card'; root.append(card);
+      for (const s of Pond.SETTINGS.filter(x => x.group === g)) {
+        const item = document.createElement('div'); item.className = 'item';
+        const head = document.createElement('div'); head.className = 'head';
+        const label = document.createElement('label'); label.textContent = s.label; label.htmlFor = 'c-' + s.key; head.append(label); item.append(head);
+        const hint = document.createElement('div'); hint.className = 'hint';
+        if (s.type === 'toggle') {
+          const box = document.createElement('input'); box.type = 'checkbox'; box.className = 'switch'; box.id = 'c-' + s.key;
+          box.onchange = () => change(s.key, box.checked); head.append(box);
+          controls[s.key] = v => { box.checked = v; };
+        } else if (s.type === 'choice') {
+          const seg = document.createElement('div'); seg.className = 'seg'; seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', s.label);
+          for (const o of s.options) { const b = document.createElement('button'); b.type = 'button'; b.textContent = (s.names && s.names[o]) || o; b.onclick = () => change(s.key, o); b.dataset.value = o; seg.append(b); }
+          head.append(seg);
+          controls[s.key] = v => { seg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.value === v)); if (s.hints) hint.textContent = s.hints[v]; };
+        } else if (s.type === 'seed') {
+          const b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = 'Shuffle'; b.id = 'c-' + s.key;
+          b.onclick = () => change(s.key, 1 + Math.floor(Math.random() * s.max)); head.append(b);
+          controls[s.key] = () => {};
+        } else {
+          const val = document.createElement('span'); val.className = 'val'; head.append(val);
+          const range = document.createElement('input'); range.type = 'range'; range.id = 'c-' + s.key; range.min = s.min; range.max = s.max; range.step = s.step;
+          range.oninput = () => change(s.key, +range.value); item.append(range);
+          controls[s.key] = v => { range.value = v; val.textContent = v + (s.unit ? (s.unit === '%' || s.unit === '°' ? s.unit : ' ' + s.unit) : ''); };
+        }
+        if (s.hint) hint.textContent = s.hint;
+        if (s.hint || s.hints) item.append(hint);
+        card.append(item);
+      }
+    }
+  }
+  function change(key, value) { config = Pond.normalize({ ...config, [key]: value }); show(); }
+  function show() {
+    for (const s of Pond.SETTINGS) controls[s.key](config[s.key]);
+    result = Pond.build(config);
+    sheet.replaceSync(result.css);
+    const pct = Math.min(100, 100 * result.size / result.limit);
+    $('meter').firstChild.style.width = pct + '%';
+    $('size').textContent = `Theme size: ${result.size.toLocaleString('en-US')} of ${result.limit.toLocaleString('en-US')} characters (the limit of T3 Code).`;
+    $('note').textContent = !result.fits ? 'Too large for T3 Code. Lower the koi count or the plant cover.' : result.trimmed.length ? 'Left out to stay under the limit: ' + result.trimmed.join(', ') + '.' : '';
+    remember();
+    clearTimeout(timer); if (folder && result.fits) timer = setTimeout(write, 250);
+  }
+  const themeText = () => JSON.stringify(result.theme);
+  async function write() {
+    try {
+      const handle = await folder.getFileHandle('koi-pond.json', { create: true }), out = await handle.createWritable();
+      await out.write(themeText()); await out.close();
+      $('status').textContent = 'Saved to T3 Code at ' + new Date().toLocaleTimeString() + '. Changes save by themselves now.';
+    } catch (e) { $('status').textContent = 'Could not save: ' + e.message; }
+  }
+  const tooLarge = () => { if (result.fits) return false; $('status').textContent = 'Not saved: the theme is too large for T3 Code.'; return true; };
+  $('save').onclick = async () => {
+    if (tooLarge()) return;
+    if (!window.showDirectoryPicker) { $('status').textContent = 'This browser cannot write to a folder. Use Download theme, then put the file in ~/.t3/userdata/themes.'; return; }
+    try { if (!folder) folder = await showDirectoryPicker({ id: 'koi-pond-themes', mode: 'readwrite' }); await write(); } catch (e) { if (e.name !== 'AbortError') $('status').textContent = 'Could not open the folder: ' + e.message; }
+  };
+  $('download').onclick = () => {
+    if (tooLarge()) return;
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([themeText()], { type: 'application/json' })); a.download = 'koi-pond.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  };
+  $('open').onclick = () => $('file').click();
+  $('file').onchange = async e => {
+    const f = e.target.files[0]; if (!f) return;
+    let read = null; try { read = Pond.readConfig(JSON.parse(await f.text())); } catch (err) {}
+    if (read) { config = read; show(); $('status').textContent = 'Loaded the settings from ' + f.name + '.'; } else $('status').textContent = f.name + ' is not a Koi Pond theme file.';
+    e.target.value = '';
+  };
+  $('reset').onclick = () => { config = Pond.defaults(); show(); };
+  document.querySelectorAll('#modes button').forEach(b => { b.onclick = () => setMode(b.dataset.mode); });
+
+  panel(); setMode(stored.mode || 'dark'); show();
+  // the test gives a folder directly; a person picks one in the dialog. Both go through write().
+  window.__studio = { get config() { return config; }, get result() { return result; }, change, useFolder: async handle => { folder = handle; await write(); } };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html><html class="dark"><head><meta charset="utf-8"><style>
+:root{--chat-content-max-width:46rem;--bg:#05070f;--fg:#e6edf7;--muted:#8b97ad;--border:rgba(140,170,220,.14)}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,system-ui,sans-serif;display:flex}
+aside{width:250px;flex:none;border-right:1px solid var(--border);padding:14px;color:var(--muted);background:#070a14}
+aside div{padding:6px 8px;border-radius:8px}aside .on{background:rgba(120,160,255,.1);color:var(--fg)}
+main{flex:1;min-width:0;display:flex;flex-direction:column;background:var(--bg)}
+[data-chat-header]{height:44px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid var(--border);font-weight:600}
+.messages-timeline-scroll{flex:1;overflow:auto;padding:24px 48px;background:var(--bg)}
+.col{max-width:var(--chat-content-max-width);margin:0 auto}
+[data-user-message-bubble]{margin:10px 0 18px auto;width:fit-content;max-width:80%;padding:8px 14px;border-radius:16px;background:#111a2e;border:1px solid var(--border)}
+pre{background:#0a1020;border:1px solid var(--border);border-radius:10px;padding:12px;font:12.5px/1.5 ui-monospace,Menlo,monospace;color:#b9c7e6}
+.work{color:var(--muted);font-size:13px;margin:8px 0}
+form{padding:0 48px 18px;width:100%}[data-slot="composer-host"]{max-width:var(--chat-content-max-width);margin:0 auto;border:1px solid var(--border);border-radius:18px;padding:14px 14px 10px;background:#0c1222}
+.ph{color:var(--muted);height:44px}.row{display:flex;align-items:center;gap:10px;justify-content:flex-end}.row span{color:var(--muted);margin-right:auto;font-size:13px}
+button{border:0;width:32px;height:32px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.stop{background:rgba(229,72,77,.9);color:#fff;box-shadow:0 1px 2px rgba(229,72,77,.24)}.send{background:#8fd3ff;color:#04121a}
+</style></head><body>
+<script>if(location.search.includes("light")){document.documentElement.classList.remove("dark");const st=document.documentElement.style;for(const [k,v] of Object.entries({"--bg":"#eef5f3","--fg":"#16242a","--muted":"#5b6b70","--border":"rgba(0,40,40,.14)"}))st.setProperty(k,v);document.head.insertAdjacentHTML("beforeend","<style>aside{background:#e3eeea!important}aside .on{background:rgba(0,90,80,.1)!important}pre{background:#f6fbfa!important;color:#23404a!important}[data-user-message-bubble]{background:#fff}[data-slot=composer-host]{background:#fff}</style>")}</script><aside data-slot="sidebar"><div class="on" data-thread-item>Theme preview</div><div>Fix flaky checkout test</div><div>Android: slim emulator</div><div>PR 4821 review</div><div>Weekly notes</div></aside>
+<main data-workspace-area="conversation">
+<div data-chat-header>Theme preview</div>
+<div class="messages-timeline-scroll"><div class="col">
+<div data-user-message-bubble>add a cook time badge to each recipe card</div>
+<p>Nice idea. Let me look at the recipe card.</p><div class="work">Read and edited app.js +1</div>
+<p>Done! Every recipe card now shows a <b>cook time badge</b> under its title. Lemon thyme pasta wins the weeknight race at 20 minutes.</p>
+<pre>function cookTime(recipe) {
+  const minutes = recipe.prep + recipe.cook;
+  return minutes < 60 ? `${minutes} min` : `${Math.round(minutes / 60)} h`;
+}</pre>
+<div data-user-message-bubble>ship it</div>
+<p>Checks passed and the pull request is <b>merged</b>. Cook time badges are live! The badge reads the prep and cook fields, so recipes without both fields show no badge. I left the sorting order unchanged.</p>
+<p>Next steps you might want: a filter for meals under 30 minutes, and a small clock icon next to the badge. Tell me if you want either of them.</p>
+</div></div>
+<form data-chat-composer-form="true"><div data-slot="composer-host"><div class="ph">Type / for commands</div><div class="row"><span>Preview of the chat area</span>
+<button type="button" class="stop" aria-label="Stop generation"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="2" y="2" width="8" height="8" rx="1.5"/></svg></button>
+<button type="submit" class="send" aria-label="Queue message"><svg class="lucide" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></div></div></form>
+</main>
+<script>
+// A model of the check T3 Code runs on theme CSS: it applies the CSS as a stylesheet, then removes every property
+// whose value has a backslash, image-set(), src(), or a url() that is not a data: address or a #id.
+// applyTheme returns the names of the removed properties; a good theme returns an empty list.
+function refuses(value) { return value.includes('\\') || /image-set\(|\bsrc\(/i.test(value) || /url\((?![ \t\n\f\r]*["']?(?:data:|#))/i.test(value); }
+function applyTheme(css) {
+  const sheet = new CSSStyleSheet(), removed = [];
+  sheet.replaceSync(css);
+  const clean = rules => { for (const rule of [...rules]) {
+    if (rule.style) for (const prop of [...rule.style]) if (refuses(rule.style.getPropertyValue(prop))) { removed.push(prop); rule.style.removeProperty(prop); }
+    if (rule.cssRules) clean(rule.cssRules);
+  } };
+  clean(sheet.cssRules);
+  document.adoptedStyleSheets = [sheet];
+  return removed;
+}
+</script></body></html>
