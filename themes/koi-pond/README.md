@@ -54,18 +54,20 @@ A T3 Code theme is CSS only. It has no script, cannot see the pointer, keeps no 
 
 ## CPU
 
-Measured in the real app on one Mac with `test/cpu.sh` (T3 Code Nightly; window process + graphics process; share of one core). One run each.
+Measured in the real app on one Mac with `test/cpu.sh` (T3 Code Nightly; window process + graphics process; share of one core). One run each, 6 samples of 3 s.
 
 | Pond | Window | Graphics |
 |---|---|---|
 | Still frame, no motion | 4.6% | 2.2% |
-| Koi only, 13 parts per koi: 1 koi | 10.4% | 8.8% |
-| Same, 3 koi | 13.5% | 8.5% |
-| Same, 6 koi | 17.0% | 8.9% |
-| Same, 14 koi, at 12 steps per second | 24.0% | 15.0% |
-| This version with default settings | not measured | not measured |
+| Default settings: 6 koi, plants, cloud shadows, wind, fireflies | 10.2% | 8.6% |
+| Default without cloud shadows | 10.3% | 8.8% |
+| 3 koi | 9.5% | 8.5% |
+| 14 koi | 14.7% | 10.8% |
 
-The rows are from an earlier version with 13 animated parts per koi and nothing but koi. Two runs of the same pond differed by up to 3%. This version has 6 to 8 parts per koi and adds plants, clouds, wind and fireflies; it is not measured in the app yet. In headless Chrome its style pass takes about 0.27 ms per frame, against 0.38 ms for six 13-part koi alone. Fewer koi and a lower "motion steps per second" lower the cost.
+- Any motion at all costs about 5% in the window process and 6% in the graphics process over a still frame.
+- Each koi adds about 0.5% in the window process.
+- Cloud shadows made no difference that this measurement can see. Two runs of the same pond can differ by up to 3%.
+- An earlier version animated 13 parts per koi and cost 17.0% + 8.9% for 6 koi alone. A first draft animated registered custom properties and cost 61% + 11%.
 
 ## Tests
 

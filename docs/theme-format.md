@@ -99,7 +99,7 @@ A theme has no script. Motion comes from CSS animation, most easily inside an SV
 
 What we measured while building [Koi Pond](../themes/koi-pond) (one Mac, T3 Code Nightly, share of one CPU core):
 
-- Any running animation costs something: a still theme used about 5% in the window process, one animated koi about 10%.
+- Any running animation costs something: a still theme used about 5% of a core in the window process, a pond with 3 koi about 10%. Each further koi (8 animated parts) added about 0.5%.
 - Animate standard properties (`offset-distance`, `transform`, `translate`, `opacity`). Animating registered custom properties (`@property`) on many elements forced a full style pass for each of them on each frame: 61% against 17% for the same picture.
 - Each animated element costs. Fewer, larger parts are cheaper than many small ones.
 - Use `steps()` and make every duration and delay a whole number of ticks. Then the image repaints once per tick and not on every frame.
