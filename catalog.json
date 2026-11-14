@@ -1,0 +1,103 @@
+{
+  "themes": [
+    {
+      "id": "koi-pond",
+      "name": "Koi Pond",
+      "author": "Dwite",
+      "description": "An animated pixel-art koi pond behind the chat. Koi bend through turns and swing their tails. 33 settings: scenes, plants, weather, time of day.",
+      "tags": [
+        "animated",
+        "pixel-art"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "#061319",
+          "accent": "#5ee0c8"
+        },
+        "light": {
+          "canvas": "#e7f7f1",
+          "accent": "#1f8f86"
+        }
+      },
+      "preview": "themes/koi-pond/preview.png",
+      "previewLight": "themes/koi-pond/preview-light.png",
+      "file": "themes/koi-pond/theme.json",
+      "folder": "themes/koi-pond",
+      "links": {
+        "Settings page": "themes/koi-pond/studio.html"
+      }
+    }
+  ],
+  "elsewhere": [
+    {
+      "name": "t3themes.com",
+      "repo": "SunkenInTime/t3-themes",
+      "url": "https://t3themes.com",
+      "kind": "gallery",
+      "description": "The community theme gallery, with previews from the real app. Themes come in by pull request."
+    },
+    {
+      "name": "Pixel Quest",
+      "repo": "Jonathon-Sherrouse/t3code-pixel-quest",
+      "kind": "theme",
+      "description": "An animated JRPG pixel-art night theme.",
+      "url": "https://github.com/Jonathon-Sherrouse/t3code-pixel-quest"
+    },
+    {
+      "name": "Dracula",
+      "repo": "dracula/t3code",
+      "kind": "theme",
+      "description": "The Dracula dark theme.",
+      "url": "https://github.com/dracula/t3code"
+    },
+    {
+      "name": "Dracula palette",
+      "repo": "ItriIbouanane/dracula-theme-t3code",
+      "kind": "theme",
+      "description": "A Dracula-palette theme.",
+      "url": "https://github.com/ItriIbouanane/dracula-theme-t3code"
+    },
+    {
+      "name": "Poimandres",
+      "repo": "gsimone/poimandres-t3code",
+      "kind": "theme",
+      "description": "The Poimandres theme.",
+      "url": "https://github.com/gsimone/poimandres-t3code"
+    },
+    {
+      "name": "Catppuccin",
+      "repo": "celeroncoder/t3code-catppuccin-theme",
+      "kind": "theme",
+      "description": "Catppuccin Mocha and Latte.",
+      "url": "https://github.com/celeroncoder/t3code-catppuccin-theme"
+    },
+    {
+      "name": "Omarchy themes",
+      "repo": "rblalock/t3code-omarchy-themes",
+      "kind": "collection",
+      "description": "Omarchy themes.",
+      "url": "https://github.com/rblalock/t3code-omarchy-themes"
+    },
+    {
+      "name": "Liquid glass themes",
+      "repo": "LuiiHer/t3code-themes",
+      "kind": "collection",
+      "description": "Gradient themes in a liquid-glass style.",
+      "url": "https://github.com/LuiiHer/t3code-themes"
+    },
+    {
+      "name": "soya-miruku themes",
+      "repo": "soya-miruku/t3code-themes",
+      "kind": "collection",
+      "description": "Light and dark themes.",
+      "url": "https://github.com/soya-miruku/t3code-themes"
+    },
+    {
+      "name": "gerardthehuman themes",
+      "repo": "gerardthehuman/t3-code-themes",
+      "kind": "collection",
+      "description": "Light and dark themes, with an agent skill to create themes.",
+      "url": "https://github.com/gerardthehuman/t3-code-themes"
+    }
+  ]
+}

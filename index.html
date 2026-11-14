@@ -4,40 +4,167 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Awesome T3 Code Themes</title>
-<meta name="description" content="Themes for T3 Code, tools to make and check them, and links to themes elsewhere.">
+<meta name="description" content="A catalog of themes for T3 Code: previews, install commands, and links to themes elsewhere.">
 <style>
-:root{--bg:#f3f7f5;--text:#16242a;--muted:#5d6b70;--line:rgba(0,40,40,.14);--accent:#1f8f86;--card:#fff}
-@media (prefers-color-scheme:dark){:root{--bg:#081318;--text:#e6edf0;--muted:#8fa0a6;--line:rgba(160,200,200,.16);--accent:#5ee0c8;--card:#0f1c21}}
+:root{--bg:#f4f7f6;--panel:#fff;--text:#14232a;--muted:#5b6a70;--line:rgba(10,50,50,.13);--accent:#1c857c;--on-accent:#fff;--chip:rgba(10,60,60,.07);--shadow:0 1px 2px rgba(10,40,40,.06),0 8px 24px rgba(10,40,40,.07)}
+@media (prefers-color-scheme:dark){:root{--bg:#070f13;--panel:#0e191e;--text:#e7eef0;--muted:#8d9ea4;--line:rgba(170,210,210,.14);--accent:#5ee0c8;--on-accent:#04121a;--chip:rgba(170,220,220,.09);--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35)}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
-main{max-width:760px;margin:0 auto;padding:48px 16px 64px}
-h1{font-size:30px;letter-spacing:-.02em;margin:0 0 8px}
-p{margin:0 0 16px}
-.lead{color:var(--muted)}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
 a{color:var(--accent)}
-.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;margin:24px 0}
-.card img{display:block;width:100%;height:auto}
-.card div{padding:14px 18px}
-.card b{font-size:18px}
-.card span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-block;padding:9px 16px;border-radius:10px;border:1px solid var(--line);text-decoration:none;color:var(--text);font-weight:600;font-size:15px}
-.btn.primary{background:var(--accent);border-color:transparent;color:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 26px}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.03em;margin:0 0 10px}
+.lead{color:var(--muted);font-size:17px;max-width:60ch;margin:0 0 20px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit;font-weight:600;font-size:14px;text-decoration:none;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:transparent;color:var(--on-accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:26px}
+#q{flex:1 1 220px;min-width:0;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit}
+.chip{padding:6px 12px;border-radius:999px;border:1px solid transparent;background:var(--chip);color:var(--text);font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--accent);color:var(--on-accent);font-weight:600}
+h2{font-size:20px;letter-spacing:-.01em;margin:0 0 4px}
+.note{color:var(--muted);margin:0 0 16px;font-size:14px}
+section{margin-bottom:44px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.shot{position:relative;display:block;aspect-ratio:16/10;background:var(--chip);overflow:hidden}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;transition:opacity .35s}
+.shot img.alt{opacity:0}
+.card:hover .shot img.alt,.shot:focus-visible img.alt{opacity:1}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.title{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+h3{font-size:18px;margin:0;letter-spacing:-.01em}
+.by{color:var(--muted);font-size:13px}
+.desc{margin:0;color:var(--muted);font-size:14px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.tag{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.swatch{display:inline-flex;border-radius:999px;overflow:hidden;border:1px solid var(--line);margin-left:auto}
+.swatch i{display:block;width:16px;height:16px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.actions .btn{padding:6px 11px;font-size:13px}
+.links{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.link{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--text)}
+.link:hover{border-color:var(--accent)}
+.link b{display:block}
+.link span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.link em{font-style:normal;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+#empty{color:var(--muted);padding:20px 0}
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--text);padding:22px;max-width:min(640px,calc(100vw - 32px));box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(0,10,12,.55)}
+dialog h2{margin-bottom:10px}
+dialog ol{margin:0 0 14px;padding-left:20px}
+dialog li{margin-bottom:10px}
+.cmd{display:flex;gap:8px;align-items:stretch;margin-top:6px}
+.cmd code{flex:1;min-width:0;overflow:auto;white-space:nowrap;padding:8px 10px;border-radius:8px;background:var(--chip);font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+.cmd .btn{padding:6px 10px;font-size:13px;flex:none}
+.sub{color:var(--muted);font-size:13px}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion:reduce){.shot img{transition:none}}
+@media (max-width:420px){.grid{grid-template-columns:1fr}.wrap{padding:0 16px}}
 </style>
 </head>
 <body>
-<main>
-  <h1>Awesome T3 Code Themes</h1>
-  <p class="lead">Themes for <a href="https://t3.codes">T3 Code</a>, tools to make and check them, and links to themes elsewhere.</p>
-  <a class="card" href="themes/koi-pond/studio.html">
-    <img src="themes/koi-pond/preview.png" alt="Koi Pond theme: pixel-art koi and lily pads behind a chat" width="1280" height="800">
-    <div><b>Koi Pond</b><span>An animated pixel-art koi pond behind the chat. Open the settings page, make your pond, and download the theme file.</span></div>
-  </a>
-  <div class="row">
-    <a class="btn primary" href="themes/koi-pond/studio.html">Open Koi Pond Studio</a>
-    <a class="btn" href="https://github.com/Dwite/awesome-t3-code-themes">Repository</a>
-    <a class="btn" href="https://github.com/Dwite/awesome-t3-code-themes/blob/main/CONTRIBUTING.md">Add your theme</a>
-  </div>
+<div class="wrap">
+  <header>
+    <h1>Awesome T3 Code Themes</h1>
+    <p class="lead">A catalog of themes for <a href="https://t3.codes">T3 Code</a>. See a theme, install it with one command, or add your own.</p>
+    <div class="row">
+      <a class="btn primary" href="https://github.com/Dwite/awesome-t3-code-themes/blob/main/CONTRIBUTING.md">Add your theme</a>
+      <a class="btn" href="https://github.com/Dwite/awesome-t3-code-themes">Repository</a>
+      <a class="btn" href="https://github.com/Dwite/awesome-t3-code-themes/blob/main/docs/theme-format.md">How a theme works</a>
+    </div>
+  </header>
+</div>
+<div class="bar"><div class="wrap row">
+  <input id="q" type="search" placeholder="Search themes" aria-label="Search themes">
+  <div id="chips" class="row" role="group" aria-label="Filter themes"></div>
+</div></div>
+<main class="wrap">
+  <section aria-labelledby="h-themes">
+    <h2 id="h-themes">Themes</h2>
+    <p class="note" id="count"></p>
+    <div id="grid" class="grid"></div>
+    <p id="empty" hidden>No theme matches. <a href="https://github.com/Dwite/awesome-t3-code-themes/blob/main/CONTRIBUTING.md">Add one.</a></p>
+  </section>
+  <section aria-labelledby="h-else">
+    <h2 id="h-else">Themes elsewhere</h2>
+    <p class="note">Themes and galleries in other repositories. Found by search; not reviewed here.</p>
+    <div id="links" class="grid links"></div>
+  </section>
 </main>
+<footer><div class="wrap">MIT license. This project is not part of T3 Code.</div></footer>
+
+<dialog id="install" aria-labelledby="i-title">
+  <h2 id="i-title"></h2>
+  <ol>
+    <li>Put the theme file in the themes folder of T3 Code. Run one command:
+      <div class="sub">macOS and Linux</div>
+      <div class="cmd"><code id="i-unix"></code><button class="btn" data-copy="i-unix">Copy</button></div>
+      <div class="sub" style="margin-top:8px">Windows (PowerShell)</div>
+      <div class="cmd"><code id="i-win"></code><button class="btn" data-copy="i-win">Copy</button></div>
+      <div class="sub" style="margin-top:8px">Or <a id="i-file" download>download the file</a> and move it to <code>~/.t3/userdata/themes/</code> yourself.</div>
+    </li>
+    <li>T3 Code finds the file by itself. Choose the theme in T3 Code, or ask the agent in T3 Code to switch to it.</li>
+  </ol>
+  <div class="row"><span class="sub" style="margin-right:auto">To go back, choose a built-in theme.</span><button class="btn primary" id="i-close">Done</button></div>
+</dialog>
+
+<script>
+(async () => {
+  const REPO = 'https://github.com/Dwite/awesome-t3-code-themes', $ = id => document.getElementById(id);
+  const el = (tag, props = {}, ...kids) => { const n = Object.assign(document.createElement(tag), props); n.append(...kids); return n; };
+  let catalog;
+  try { catalog = await (await fetch('catalog.json')).json(); }
+  catch (e) { $('count').textContent = 'The catalog did not load. See the repository for the list of themes.'; return; }
+
+  const both = t => Object.keys(t.modes).length > 1;
+  const filters = [['all', 'All', () => true], ['both', 'Light + dark', both],
+    ...[...new Set(catalog.themes.flatMap(t => t.tags))].sort().map(tag => [tag, tag.replace(/-/g, ' '), t => t.tags.includes(tag)])];
+  let active = 'all';
+
+  function card(t) {
+    const shot = el('a', { className: 'shot', href: `${REPO}/tree/main/${t.folder}`, title: `${t.name}: source and details` },
+      el('img', { src: t.preview, alt: `${t.name} theme in T3 Code`, loading: 'lazy', width: 1280, height: 800 }));
+    if (t.previewLight) shot.append(el('img', { className: 'alt', src: t.previewLight, alt: '', loading: 'lazy', width: 1280, height: 800 }));
+    const swatch = el('span', { className: 'swatch', title: Object.keys(t.modes).join(' and ') + ' mode' });
+    for (const colours of Object.values(t.modes)) for (const c of [colours.canvas, colours.accent]) if (c) { const dot = el('i'); dot.style.background = c; swatch.append(dot); }
+    const actions = el('div', { className: 'actions' }, el('button', { className: 'btn primary', type: 'button', textContent: 'Install', onclick: () => install(t) }));
+    for (const [label, href] of Object.entries(t.links)) actions.append(el('a', { className: 'btn', href, textContent: label }));
+    actions.append(el('a', { className: 'btn', href: `${REPO}/tree/main/${t.folder}`, textContent: 'Source' }));
+    return el('article', { className: 'card' }, shot, el('div', { className: 'body' },
+      el('div', { className: 'title' }, el('h3', { textContent: t.name }), el('span', { className: 'by', textContent: 'by ' + t.author })),
+      el('p', { className: 'desc', textContent: t.description }),
+      el('div', { className: 'meta' }, ...t.tags.map(tag => el('span', { className: 'tag', textContent: tag.replace(/-/g, ' ') })),
+        el('span', { className: 'tag', textContent: both(t) ? 'light + dark' : Object.keys(t.modes)[0] }), swatch),
+      actions));
+  }
+  function show() {
+    const q = $('q').value.trim().toLowerCase(), test = filters.find(f => f[0] === active)[2];
+    const found = catalog.themes.filter(t => test(t) && (!q || [t.name, t.author, t.description, ...t.tags].join(' ').toLowerCase().includes(q)));
+    $('grid').replaceChildren(...found.map(card));
+    $('empty').hidden = found.length > 0;
+    $('count').textContent = `${found.length} of ${catalog.themes.length} ${catalog.themes.length === 1 ? 'theme' : 'themes'} in this repository.`;
+    for (const b of $('chips').children) b.setAttribute('aria-pressed', b.dataset.key === active);
+  }
+  function install(t) {
+    const url = new URL(t.file, location.href).href;
+    $('i-title').textContent = `Install ${t.name}`;
+    $('i-unix').textContent = `mkdir -p ~/.t3/userdata/themes && curl -fsSL ${url} -o ~/.t3/userdata/themes/${t.id}.json`;
+    $('i-win').textContent = `$d="$env:USERPROFILE\\.t3\\userdata\\themes"; mkdir -Force $d | Out-Null; iwr ${url} -OutFile "$d\\${t.id}.json"`;
+    Object.assign($('i-file'), { href: t.file, download: t.id + '.json' });
+    $('install').showModal();
+  }
+  for (const [key, label] of filters) $('chips').append(el('button', { className: 'chip', type: 'button', textContent: label, onclick: () => { active = key; show(); } }));
+  $('chips').querySelectorAll('button').forEach((b, i) => { b.dataset.key = filters[i][0]; });
+  $('q').oninput = show;
+  $('i-close').onclick = () => $('install').close();
+  document.querySelectorAll('[data-copy]').forEach(b => { b.onclick = async () => { try { await navigator.clipboard.writeText($(b.dataset.copy).textContent); b.textContent = 'Copied'; } catch (e) { b.textContent = 'Select and copy'; } setTimeout(() => { b.textContent = 'Copy'; }, 1500); }; });
+  $('links').replaceChildren(...catalog.elsewhere.map(e => el('a', { className: 'link', href: e.url }, el('em', { textContent: e.kind }), el('b', { textContent: e.name }), el('span', { textContent: e.description }))));
+  show();
+})();
+</script>
 </body>
 </html>

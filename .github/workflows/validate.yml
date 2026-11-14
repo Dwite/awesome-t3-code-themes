@@ -14,3 +14,4 @@ jobs:
         with:
           node-version: 22
       - run: node tools/validate.mjs
+      - run: node tools/catalog.mjs --check
