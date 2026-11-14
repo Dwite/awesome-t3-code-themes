@@ -43,9 +43,9 @@ The file above is the shape for the **themes folder**. T3 Code also imports a th
 | `canvas`, `accent` | top-level fields; T3 Code derives the other roles from them | roles inside `colors`; nothing is derived |
 | `colors` | optional | required. A role you leave out takes the default T3 Chat colour |
 | `variants` | `light` and `dark` | only the other mode than `appearance` |
-| `css` | applied | the gallery keeps it in the file; a contributor to the gallery reports that T3 Code applies it on import. Not tested here |
+| `css` | applied | applied by T3 Code: its `ThemeFile` has `css`, and `parseThemeFile` keeps it (read in the T3 Code source, `apps/web/src/themePalette.ts`; the import dialog is not tested here). The gallery site does not show it yet |
 
-To publish a themes-folder theme in the gallery, give `colors` every role. T3 Code's own `createVividThemeColors` (in its `themePalette.ts`) makes the full set from a canvas and an accent. The import shape is read from the T3 Code source that the gallery keeps a copy of, as of 2026-11-14.
+To publish a themes-folder theme in the gallery, give `colors` every role. T3 Code's own `createVividThemeColors` (in its `themePalette.ts`) makes the full set from a canvas and an accent. The import shape is read from the T3 Code source, as of 2026-11-14. A file in the import shape also works in the themes folder: T3 Code ignores the extra fields (`id`, `author`, `description`). Tested with the gallery file of Koi Pond.
 
 ## Colour roles
 
