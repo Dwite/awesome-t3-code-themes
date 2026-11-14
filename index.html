@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome T3 Code Themes</title>
+<meta name="description" content="Themes for T3 Code, tools to make and check them, and links to themes elsewhere.">
+<style>
+:root{--bg:#f3f7f5;--text:#16242a;--muted:#5d6b70;--line:rgba(0,40,40,.14);--accent:#1f8f86;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#081318;--text:#e6edf0;--muted:#8fa0a6;--line:rgba(160,200,200,.16);--accent:#5ee0c8;--card:#0f1c21}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:48px 16px 64px}
+h1{font-size:30px;letter-spacing:-.02em;margin:0 0 8px}
+p{margin:0 0 16px}
+.lead{color:var(--muted)}
+a{color:var(--accent)}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;margin:24px 0}
+.card img{display:block;width:100%;height:auto}
+.card div{padding:14px 18px}
+.card b{font-size:18px}
+.card span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:9px 16px;border-radius:10px;border:1px solid var(--line);text-decoration:none;color:var(--text);font-weight:600;font-size:15px}
+.btn.primary{background:var(--accent);border-color:transparent;color:var(--bg)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Awesome T3 Code Themes</h1>
+  <p class="lead">Themes for <a href="https://t3.codes">T3 Code</a>, tools to make and check them, and links to themes elsewhere.</p>
+  <a class="card" href="themes/koi-pond/studio.html">
+    <img src="themes/koi-pond/preview.png" alt="Koi Pond theme: pixel-art koi and lily pads behind a chat" width="1280" height="800">
+    <div><b>Koi Pond</b><span>An animated pixel-art koi pond behind the chat. Open the settings page, make your pond, and download the theme file.</span></div>
+  </a>
+  <div class="row">
+    <a class="btn primary" href="themes/koi-pond/studio.html">Open Koi Pond Studio</a>
+    <a class="btn" href="https://github.com/Dwite/awesome-t3-code-themes">Repository</a>
+    <a class="btn" href="https://github.com/Dwite/awesome-t3-code-themes/blob/main/CONTRIBUTING.md">Add your theme</a>
+  </div>
+</main>
+</body>
+</html>

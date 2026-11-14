@@ -18,7 +18,7 @@ Inspired by [Nagomi](https://github.com/msk1039/nagomi), an interactive koi pond
 
 There are 33 settings.
 
-- **Settings page:** open `studio.html` in Chrome or another Chromium browser. The preview is the real theme. **Save to T3 Code** asks once for the themes folder (`~/.t3/userdata/themes`; in the macOS folder dialog press Cmd+Shift+G and paste the path). After that each change is written to `koi-pond.json` and T3 Code shows it at once. **Download theme** gives you the file instead.
+- **Settings page:** open [the online settings page](https://dwite.github.io/awesome-t3-code-themes/themes/koi-pond/studio.html), or `studio.html` from a checkout, in Chrome or another Chromium browser. The preview is the real theme. **Save to T3 Code** asks once for the themes folder (`~/.t3/userdata/themes`; in the macOS folder dialog press Cmd+Shift+G and paste the path). After that each change is written to `koi-pond.json` and T3 Code shows it at once. **Download theme** gives you the file instead.
 - **Command:** `node cli.js --set koiCount=8 --set rain=true --install`. `node cli.js --list` shows every setting. `node cli.js --install` builds from `config.json`.
 - The theme file keeps its settings. **Open theme file** on the settings page loads them back, so you can pass a pond to someone and they can change it.
 

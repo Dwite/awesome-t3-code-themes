@@ -6,7 +6,7 @@ Themes for [T3 Code](https://t3.codes), tools to make and check them, and links 
 
 | Theme | Preview | What it is |
 |---|---|---|
-| [Koi Pond](themes/koi-pond) | [![Koi Pond](themes/koi-pond/preview.png)](themes/koi-pond) | An animated pixel-art koi pond behind the chat. Koi bend through turns and swing their tails. 33 settings (scenes, plants, weather, time of day) on a settings page. Light and dark mode. |
+| [Koi Pond](themes/koi-pond) | [![Koi Pond](themes/koi-pond/preview.png)](themes/koi-pond) | An animated pixel-art koi pond behind the chat. Koi bend through turns and swing their tails. 33 settings (scenes, plants, weather, time of day). Light and dark mode. [Open the settings page](https://dwite.github.io/awesome-t3-code-themes/themes/koi-pond/studio.html) to make your own pond. |
 
 ## Install a theme
 
