@@ -53,6 +53,7 @@
     { key: 'pixel', group: 'Display', label: 'Pixel size', type: 'range', min: 0, max: 8, step: 1, unit: 'px', default: 5, hint: '0 turns the pixel look off.' },
     { key: 'fps', group: 'Display', label: 'Motion steps per second', type: 'range', min: 8, max: 30, step: 1, default: 15 },
     { key: 'strength', group: 'Display', label: 'Pond strength behind the chat', type: 'range', min: 30, max: 100, step: 5, unit: '%', default: 85 },
+    { key: 'scrim', group: 'Display', label: 'Dim the middle for reading', type: 'range', min: 0, max: 90, step: 5, unit: '%', default: 50, hint: 'A soft band behind the message column: dark in dark mode, light in light mode. 0 turns it off.' },
   ];
   const defaults = () => Object.fromEntries(SETTINGS.map(s => [s.key, s.default]));
   function normalize(config) {
@@ -406,8 +407,10 @@
     const stop = (sel, col) => `${sel} [data-chat-composer-form] button[aria-label^="Stop"]{background:${rgba(col, .12)}!important;color:${col}!important;box-shadow:inset 0 0 0 1.5px ${rgba(col, .75)}!important}`;
     return `${A}{position:relative;isolation:isolate;overflow:clip}`
       + `${A}::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url("data:image/svg+xml,${pondSvg(c, opts.pause)}") 0 0/100% 100% no-repeat;opacity:${num(c.strength / 100)}${filter ? ';filter:' + filter : ''}}`
-      + `.dark ${A}{background-image:${dk.css}!important}.dark ${A}::before{color-scheme:dark}`
-      + `${L} ${A}{background-image:${lt.css}!important}${L} ${A}::before{color-scheme:light}`
+      // a soft band behind the message column, so text stays easy to read over koi and plants; it is as wide as the column plus a fade
+      + (c.scrim ? `${A}::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent calc(50% - 32rem),var(--kp-dim) calc(50% - 23rem),var(--kp-dim) calc(50% + 23rem),transparent calc(50% + 32rem))}` : '')
+      + `.dark ${A}{background-image:${dk.css}!important${c.scrim ? `;--kp-dim:${rgba(dk.w[2], c.scrim / 100)}` : ''}}.dark ${A}::before{color-scheme:dark}`
+      + `${L} ${A}{background-image:${lt.css}!important${c.scrim ? `;--kp-dim:${rgba(mix(lt.w[0], '#ffffff', .6), c.scrim / 100)}` : ''}}${L} ${A}::before{color-scheme:light}`
       + `.messages-timeline-scroll{background:transparent!important}`
       + `.dark [data-slot="composer-host"],.dark [data-user-message-bubble]{background:${dk.glass}!important}`
       + `${L} [data-slot="composer-host"],${L} [data-user-message-bubble]{background:${lt.glass}!important}`
@@ -424,15 +427,18 @@
     ['some koi', c => c.koiCount > 4 && (c.koiCount -= 2, true)],
   ];
   // The settings travel inside the theme file, as a comment at the start of its CSS, so a shared file can be opened and changed again.
-  // Format 1 is every value in the order of ORDER_1, comma separated. When settings change, add ORDER_2 and keep ORDER_1 so old files still open.
-  const TAG = '/*koi-pond ', ORDER_1 = SETTINGS.map(s => s.key);
-  function stamp(c) { return `${TAG}1 ${ORDER_1.map(k => c[k] === true ? 1 : c[k] === false ? 0 : c[k]).join(',')}*/`; }
+  // The values sit in the order of STAMP_ORDER, comma separated. A new setting goes at the END of this list and nowhere else:
+  // then a file written before the setting existed still opens, and the new setting takes its default.
+  const TAG = '/*koi-pond ', STAMP_ORDER = ['scene', 'plantSeed', 'plantCover', 'koiCount', 'mood', 'graze', 'feeding', 'feedX', 'feedY', 'ball', 'goose', 'gooseEvery',
+    'wind', 'windStrength', 'waveShort', 'waveLong', 'crest', 'spread', 'waveSpeed', 'windDirection', 'gustSize', 'gustSpeed', 'calm', 'bedLight', 'bedLightBrightness',
+    'lightTime', 'darkTime', 'rain', 'fireflies', 'clouds', 'pixel', 'fps', 'strength', 'scrim'];
+  function stamp(c) { return `${TAG}1 ${STAMP_ORDER.map(k => c[k] === true ? 1 : c[k] === false ? 0 : c[k]).join(',')}*/`; }
   function readConfig(theme) {
     const css = typeof theme === 'string' ? theme : (theme && theme.css) || '';
     if (!css.startsWith(TAG + '1 ')) return null;
     const values = css.slice(TAG.length + 2, css.indexOf('*/')).split(','), out = {};
-    if (values.length !== ORDER_1.length) return null;
-    ORDER_1.forEach((k, i) => { const s = SETTINGS.find(x => x.key === k); if (s) out[k] = s.type === 'toggle' ? values[i] === '1' : values[i]; });
+    if (values.length < 33 || values.length > STAMP_ORDER.length) return null;        // 33 = the first published version
+    values.forEach((v, i) => { const s = SETTINGS.find(x => x.key === STAMP_ORDER[i]); if (s) out[s.key] = s.type === 'toggle' ? v === '1' : v; });
     return normalize(out);
   }
   /** Hour of the day (0-23) to the two time settings: the pond in light mode and in dark mode. */

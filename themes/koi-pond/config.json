@@ -31,5 +31,6 @@
   "clouds": true,
   "pixel": 5,
   "fps": 15,
-  "strength": 85
+  "strength": 85,
+  "scrim": 50
 }

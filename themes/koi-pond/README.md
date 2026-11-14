@@ -16,7 +16,7 @@ Inspired by [Nagomi](https://github.com/msk1039/nagomi), an interactive koi pond
 
 ## Change the settings
 
-There are 33 settings.
+There are 34 settings.
 
 - **Settings page:** open [the online settings page](https://dwite.github.io/awesome-t3-code-themes/themes/koi-pond/studio.html), or `studio.html` from a checkout, in Chrome or another Chromium browser. The preview is the real theme. **Save to T3 Code** asks once for the themes folder (`~/.t3/userdata/themes`; in the macOS folder dialog press Cmd+Shift+G and paste the path). After that each change is written to `koi-pond.json` and T3 Code shows it at once. **Download theme** gives you the file instead.
 - **Command:** `node cli.js --set koiCount=8 --set rain=true --install`. `node cli.js --list` shows every setting. `node cli.js --install` builds from `config.json`.
@@ -30,7 +30,7 @@ There are 33 settings.
 | Visitors | a ball that a koi pushes round the pond, a goose that crosses the pond |
 | Waves | wind waves (strength, shortest and longest wave, crest, speed, direction, spread), gusts (size, speed, calm between), a net of light on the bed |
 | Time and weather | dawn, day, golden (light mode); dusk, night, deep clear (dark mode); rain, fireflies, cloud shadows |
-| Display | pixel size (0 = smooth), motion steps per second, strength behind the text |
+| Display | pixel size (0 = smooth), motion steps per second, strength behind the text, a dimmed band behind the message column for reading |
 
 ## Time of day
 
@@ -50,7 +50,8 @@ A T3 Code theme is CSS only. It has no script, cannot see the pointer, keeps no 
 - **Ticks.** All timing uses `steps()` on one grid, and every duration is a whole number of ticks. The image repaints once per tick: a headless trace counted 15.2 repaints per second at 15 steps, and 10.0 at 10 with every option on.
 - **Gusts.** A gust is a `clip-path` circle that crosses the pond at gust speed, over a field of wavelets that moves at wave speed.
 - **Size.** A theme's CSS may be 20,000 characters. When a mix of settings is over that, the generator leaves parts out in a fixed order (light net, some plants, cloud shadows, fireflies, wind waves, some koi) and says so.
-- **Settings in the file.** All settings sit in a comment at the start of the theme's CSS, in a numbered format so later versions can still open old files.
+- **Reading band.** A still layer above the pond and below the text dims the middle, where the message column is. Koi stay bright at the sides.
+- **Settings in the file.** All settings sit in a comment at the start of the theme's CSS. New settings are added at the end of that list, so a file from an older version still opens.
 
 ## CPU
 

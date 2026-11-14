@@ -10,7 +10,7 @@ Themes for [T3 Code](https://t3.codes), tools to make and check them, and links 
 | Theme | By | Modes | What it is |
 |---|---|---|---|
 | [Dracula](themes/dracula) | dracula, from [dracula/t3code](https://github.com/dracula/t3code) (MIT) | dark | The Dracula dark theme for T3 Code, from the Dracula Theme project. |
-| [Koi Pond](themes/koi-pond) | Dwite | dark + light | An animated pixel-art koi pond behind the chat. Koi bend through turns and swing their tails. 33 settings: scenes, plants, weather, time of day. [Settings page](https://dwite.github.io/awesome-t3-code-themes/themes/koi-pond/studio.html). |
+| [Koi Pond](themes/koi-pond) | Dwite | dark + light | An animated pixel-art koi pond behind the chat. Koi bend through turns and swing their tails. 34 settings: scenes, plants, weather, time of day. [Settings page](https://dwite.github.io/awesome-t3-code-themes/themes/koi-pond/studio.html). |
 | [Nous](themes/nous) | soya-miruku, from [soya-miruku/t3code-themes](https://github.com/soya-miruku/t3code-themes) (MIT) | light + dark | GitHub-style light and dark chrome with a Nous-blue accent. From the Hermes Desktop skin of the same name. |
 | [Nous Alt](themes/nous-alt) | soya-miruku, from [soya-miruku/t3code-themes](https://github.com/soya-miruku/t3code-themes) (MIT) | light + dark | Cream on mission blue in dark mode, glass neutrals with brand blue in light mode. From the Hermes Desktop skin. |
 | [Omarchy — Artemis](themes/omarchy-artemis) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Artemis palette from Omarchy, as a T3 Code theme. |

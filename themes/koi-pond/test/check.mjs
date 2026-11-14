@@ -32,6 +32,11 @@ function problems(r) {
 }
 
 let failed = 0;
+// every setting must be in the stamp order, and a file from the first published version (33 values) must still open
+const stampKeys = Pond.build({}).css.slice(0, 400).match(/^\/\*koi-pond 1 ([^*]*)\*\//)[1].split(',').length;
+if (stampKeys !== Pond.SETTINGS.length) { failed++; console.log(`FAIL the settings stamp holds ${stampKeys} values for ${Pond.SETTINGS.length} settings: add the new setting at the end of STAMP_ORDER`); }
+const old = Pond.readConfig('/*koi-pond 1 lagoon,7,40,9,calm,1,0,75,30,0,0,110,1,55,12,40,15,70,14,20,260,45,60,1,60,day,night,0,1,1,5,15,85*/x');
+if (!old || old.scene !== 'lagoon' || old.koiCount !== 9 || old.strength !== 85 || old.scrim !== Pond.defaults().scrim) { failed++; console.log('FAIL a theme file from the first published version no longer opens with its settings'); }
 const wrong = [[20, 0, '20'], [-0.4, 0, '0'], [100, 2, '100'], [0.5, 2, '.5'], [-0.25, 2, '-.25'], [12.30, 2, '12.3']].filter(([v, nd, want]) => Pond.num(v, nd) !== want);
 if (wrong.length) { failed++; console.log('FAIL num() is wrong for ' + wrong.map(w => w[0]).join(', ')); }
 
