@@ -1,6 +1,6 @@
 # The T3 Code theme format
 
-A theme is one JSON file in the themes folder of a machine: `~/.t3/userdata/themes/<id>.json` (Windows: `%USERPROFILE%\.t3\userdata\themes\<id>.json`). T3 Code watches the folder. A new file shows up as a theme, and a change to the active theme's file shows at once.
+A theme is one JSON file in the themes folder of a machine: `~/.t3/userdata/themes/<id>.json` (Windows: `%USERPROFILE%\.t3\userdata\themes\<id>.json`). The id is lower-case letters, digits and hyphens, at most 48 characters, and not `system`, `light` or `dark`. T3 Code watches the folder. A new file shows up as a theme, and a change to the active theme's file shows at once.
 
 This page describes T3 Code Nightly as of November 2026, from its theme guide and from tests. T3 Code can change these rules.
 
@@ -24,9 +24,9 @@ This page describes T3 Code Nightly as of November 2026, from its theme guide an
 | `version` | `1` |
 | `name` | 1 to 48 characters. A longer name makes T3 Code drop the file. |
 | `appearance` | `"dark"` or `"light"`: the mode the theme is made for. |
-| `canvas`, `accent` | `"#rrggbb"`. T3 Code derives a full palette from these two. |
-| `colors` | Optional. Single colour roles, each `"#rrggbb"`. |
-| `variants` | Optional. `light` and `dark`: colour roles for the other mode. Each is a flat map of role to `"#rrggbb"`, the same shape as `colors`. `canvas` and `accent` are roles too. |
+| `canvas`, `accent` | `"#rgb"` or `"#rrggbb"`. T3 Code derives a full palette from these two. Without them, `colors` is the palette. |
+| `colors` | Optional. Single colour roles. Each value is a literal CSS colour of at most 64 characters: `"#rrggbb"`, `"#rrggbbaa"`, `"oklch(0.6 0.1 200)"` and so on. Not `var(...)`. |
+| `variants` | Optional. `light` and `dark`: colour roles for the other mode. Each is a flat map of role to colour, the same shape as `colors`. `canvas` and `accent` are roles too. |
 | `css` | Optional. At most 20,000 characters. Applied after the app's own styles. |
 
 The whole file is at most 32,768 bytes.

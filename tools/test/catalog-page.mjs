@@ -19,7 +19,9 @@ try { await withChrome(async ({ goto, run, sleep, screenshot, errors }) => {
   await goto(`http://127.0.0.1:${server.address().port}/`, 1500);
   check(await run('document.querySelectorAll("#grid .card").length') === catalog.themes.length, `one card per theme (${catalog.themes.length})`);
   check(await run('document.querySelectorAll("#links .link").length') === catalog.elsewhere.length, `one link per entry elsewhere (${catalog.elsewhere.length})`);
-  check(await run('[...document.querySelectorAll("#grid .shot img:not(.alt)")].every(i => i.complete && i.naturalWidth > 0)'), 'every preview picture loads');
+  const pictures = catalog.themes.flatMap(t => [t.preview, t.previewAlt].filter(Boolean));
+  check(await run(`Promise.all(${JSON.stringify(pictures)}.map(src => fetch(src).then(r => r.ok && r.headers.get('content-type') === 'image/png'))).then(all => all.every(Boolean))`), `every preview picture is served (${pictures.length})`);
+  check(await run('document.querySelector("#grid .shot img").naturalWidth') > 0, 'the first card shows its picture');
   if (process.env.SHOT) writeFileSync(process.env.SHOT, await screenshot());
   await run('document.querySelector("#q").value = "zzzz no such theme"; document.querySelector("#q").dispatchEvent(new Event("input"))');
   check(await run('document.querySelectorAll("#grid .card").length') === 0 && await run('!document.querySelector("#empty").hidden'), 'a search with no match shows the empty note');

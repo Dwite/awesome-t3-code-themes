@@ -1,0 +1,14 @@
+{
+  "author": "rblalock",
+  "description": "The Solitude palette from Omarchy, as a T3 Code theme.",
+  "tags": [
+    "omarchy"
+  ],
+  "source": {
+    "repo": "rblalock/t3code-omarchy-themes",
+    "commit": "8016895ce758d32db531e1da046072583644ba30",
+    "path": "themes/solitude.json",
+    "license": "MIT",
+    "converted": "the source is a VS Code theme file. T3 Code's own import code (vscodeThemeImport.ts at commit ef6e05e356) turned it into this T3 Code theme, as the app does when you import that file. The palette credits are in the NOTICE file."
+  }
+}

@@ -16,7 +16,8 @@ const themes = ids.map(id => {
   if (theme.variants?.[other]) modes[other] = colours(theme.variants[other]);
   return {
     id, name: theme.name, author: meta.author, description: meta.description, tags: meta.tags ?? [], modes,
-    preview: `themes/${id}/preview.png`, ...(existsSync(join(root, 'themes', id, 'preview-light.png')) ? { previewLight: `themes/${id}/preview-light.png` } : {}),
+    preview: `themes/${id}/preview.png`, ...(existsSync(join(root, 'themes', id, `preview-${other}.png`)) ? { previewAlt: `themes/${id}/preview-${other}.png` } : {}),
+    ...(meta.source ? { source: { repo: meta.source.repo, license: meta.source.license } } : {}),
     file: `themes/${id}/theme.json`, folder: `themes/${id}`, links: meta.links ?? {},
   };
 });
@@ -24,9 +25,8 @@ const elsewhere = read('elsewhere.json').map(e => ({ ...e, url: e.url ?? `https:
 const catalog = JSON.stringify({ themes, elsewhere }, null, 2) + '\n';
 
 // README lists, between markers
-const modesText = t => Object.keys(t.modes).length > 1 ? 'Light and dark mode.' : `${Object.keys(t.modes)[0][0].toUpperCase()}${Object.keys(t.modes)[0].slice(1)} mode.`;
-const table = '| Theme | Preview | What it is |\n|---|---|---|\n' + themes.map(t =>
-  `| [${t.name}](${t.folder}) by ${t.author} | [![${t.name}](${t.preview})](${t.folder}) | ${t.description} ${modesText(t)}${Object.entries(t.links).map(([label, href]) => ` [${label}](${/^https:/.test(href) ? href : 'https://dwite.github.io/awesome-t3-code-themes/' + href}).`).join('')} |`).join('\n');
+const table = '| Theme | By | Modes | What it is |\n|---|---|---|---|\n' + themes.map(t =>
+  `| [${t.name}](${t.folder}) | ${t.author}${t.source ? `, from [${t.source.repo}](https://github.com/${t.source.repo}) (${t.source.license})` : ''} | ${Object.keys(t.modes).join(' + ')} | ${t.description}${Object.entries(t.links).map(([label, href]) => ` [${label}](${/^https:/.test(href) ? href : 'https://dwite.github.io/awesome-t3-code-themes/' + href}).`).join('')} |`).join('\n');
 const list = elsewhere.map(e => `- [${e.name}](${e.url})${e.repo && !e.url.includes(e.repo) ? ` ([${e.repo}](https://github.com/${e.repo}))` : ''}: ${e.description}`).join('\n');
 function fill(text, name, body) {
   const open = `<!-- catalog:${name} -->`, close = `<!-- /catalog:${name} -->`, a = text.indexOf(open), b = text.indexOf(close);

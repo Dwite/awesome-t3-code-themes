@@ -38,6 +38,7 @@ section{margin-bottom:44px}
 .title{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 h3{font-size:18px;margin:0;letter-spacing:-.01em}
 .by{color:var(--muted);font-size:13px}
+.from{color:var(--muted);font-size:12.5px;margin-top:-4px}
 .desc{margin:0;color:var(--muted);font-size:14px}
 .meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:2px}
 .tag{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--muted)}
@@ -121,14 +122,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   catch (e) { $('count').textContent = 'The catalog did not load. See the repository for the list of themes.'; return; }
 
   const both = t => Object.keys(t.modes).length > 1;
-  const filters = [['all', 'All', () => true], ['both', 'Light + dark', both],
+  const filters = [['all', 'All', () => true], ['dark', 'Dark', t => 'dark' in t.modes], ['light', 'Light', t => 'light' in t.modes], ['both', 'Light + dark', both],
     ...[...new Set(catalog.themes.flatMap(t => t.tags))].sort().map(tag => [tag, tag.replace(/-/g, ' '), t => t.tags.includes(tag)])];
   let active = 'all';
 
   function card(t) {
     const shot = el('a', { className: 'shot', href: `${REPO}/tree/main/${t.folder}`, title: `${t.name}: source and details` },
       el('img', { src: t.preview, alt: `${t.name} theme in T3 Code`, loading: 'lazy', width: 1280, height: 800 }));
-    if (t.previewLight) shot.append(el('img', { className: 'alt', src: t.previewLight, alt: '', loading: 'lazy', width: 1280, height: 800 }));
+    if (t.previewAlt) shot.append(el('img', { className: 'alt', src: t.previewAlt, alt: '', loading: 'lazy', width: 1280, height: 800 }));
     const swatch = el('span', { className: 'swatch', title: Object.keys(t.modes).join(' and ') + ' mode' });
     for (const colours of Object.values(t.modes)) for (const c of [colours.canvas, colours.accent]) if (c) { const dot = el('i'); dot.style.background = c; swatch.append(dot); }
     const actions = el('div', { className: 'actions' }, el('button', { className: 'btn primary', type: 'button', textContent: 'Install', onclick: () => install(t) }));
@@ -136,6 +137,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     actions.append(el('a', { className: 'btn', href: `${REPO}/tree/main/${t.folder}`, textContent: 'Source' }));
     return el('article', { className: 'card' }, shot, el('div', { className: 'body' },
       el('div', { className: 'title' }, el('h3', { textContent: t.name }), el('span', { className: 'by', textContent: 'by ' + t.author })),
+      ...(t.source ? [el('div', { className: 'from' }, 'From ', el('a', { href: 'https://github.com/' + t.source.repo, textContent: t.source.repo }), `, ${t.source.license} license`)] : []),
       el('p', { className: 'desc', textContent: t.description }),
       el('div', { className: 'meta' }, ...t.tags.map(tag => el('span', { className: 'tag', textContent: tag.replace(/-/g, ' ') })),
         el('span', { className: 'tag', textContent: both(t) ? 'light + dark' : Object.keys(t.modes)[0] }), swatch),
@@ -146,7 +148,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
     const found = catalog.themes.filter(t => test(t) && (!q || [t.name, t.author, t.description, ...t.tags].join(' ').toLowerCase().includes(q)));
     $('grid').replaceChildren(...found.map(card));
     $('empty').hidden = found.length > 0;
-    $('count').textContent = `${found.length} of ${catalog.themes.length} ${catalog.themes.length === 1 ? 'theme' : 'themes'} in this repository.`;
+    $('count').textContent = `${found.length} of ${catalog.themes.length} ${catalog.themes.length === 1 ? 'theme' : 'themes'}. Hover a card to see its other mode.`;
     for (const b of $('chips').children) b.setAttribute('aria-pressed', b.dataset.key === active);
   }
   function install(t) {

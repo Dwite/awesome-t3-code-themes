@@ -27,6 +27,14 @@
 - An animated theme stops its motion under `prefers-reduced-motion: reduce`, and its README says what it costs in CPU if you measured it.
 - No tracking and no remote files. T3 Code refuses remote files in theme CSS in any case.
 
+## Import a theme from another repository
+
+Only when its license allows it (for example MIT). A repository with no license cannot be imported; add a link instead.
+
+1. Put the source's license text at `third-party/<owner>-<repo>/LICENSE` (and its `NOTICE`, if it has one). Add a row to `third-party/README.md`.
+2. Run `node tools/import.mjs` with the theme file, the author, the repository, the commit and the license. The top of `tools/import.mjs` shows the arguments. It writes the theme folder with the credit.
+3. Run `node tools/preview.mjs <id>` (and `--mode` for its other mode), then `node tools/catalog.mjs` and the checks.
+
 ## Add a link
 
 To add a theme or a gallery that lives in another repository, add an entry to `elsewhere.json` (`name`, `repo` or `url`, `kind`: theme, collection, gallery or tool, and a short `description`). Then run `node tools/catalog.mjs`.

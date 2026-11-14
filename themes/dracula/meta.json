@@ -1,0 +1,10 @@
+{
+  "author": "dracula",
+  "description": "The Dracula dark theme for T3 Code, from the Dracula Theme project.",
+  "source": {
+    "repo": "dracula/t3code",
+    "commit": "9094377459564b2d2f19b612b0a52f30e01c13ef",
+    "path": "Dracula.json",
+    "license": "MIT"
+  }
+}

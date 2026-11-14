@@ -34,6 +34,13 @@ for (const id of readdirSync(dir).filter(n => statSync(join(dir, n)).isDirectory
     if (typeof meta.author !== 'string' || !/^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$/.test(meta.author)) bad.push('meta.json: author must be a GitHub user name');
     if (typeof meta.description !== 'string' || meta.description.length < 20 || meta.description.length > 200) bad.push('meta.json: description must be 20 to 200 characters');
     if (meta.tags !== undefined && !(Array.isArray(meta.tags) && meta.tags.length <= 5 && meta.tags.every(t => typeof t === 'string' && /^[a-z0-9][a-z0-9-]{1,20}$/.test(t)))) bad.push('meta.json: tags must be at most 5 lower-case words, such as "animated"');
+    if (meta.source !== undefined) {
+      const s = meta.source;
+      if (!s || !/^[\w.-]+\/[\w.-]+$/.test(s.repo ?? '')) bad.push('meta.json: source.repo must be owner/name');
+      else if (!existsSync(join(root, 'third-party', s.repo.replace('/', '-'), 'LICENSE'))) bad.push(`meta.json: an imported theme needs its license text at third-party/${s.repo.replace('/', '-')}/LICENSE`);
+      if (!s || typeof s.license !== 'string' || !s.license.trim()) bad.push('meta.json: source.license must name the license, such as MIT');
+      if (!s || !/^[0-9a-f]{7,40}$/.test(s.commit ?? '')) bad.push('meta.json: source.commit must be the commit the theme was taken from');
+    }
     for (const [label, href] of Object.entries(meta.links ?? {})) if (typeof href !== 'string' || !(/^https:\/\//.test(href) || existsSync(join(root, href)))) bad.push(`meta.json: link "${label}" must be an https address or a file in this repository`);
   } catch (e) { bad.push('meta.json is not valid JSON: ' + e.message); }
   console.log(`${bad.length ? 'FAIL' : 'ok  '} ${id}${bad.map(b => '\n       - ' + b).join('')}`);

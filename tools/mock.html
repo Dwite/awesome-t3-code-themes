@@ -1,21 +1,26 @@
 <!doctype html><html class="dark"><head><meta charset="utf-8"><style>
-:root{--chat-content-max-width:46rem;--bg:#05070f;--fg:#e6edf7;--muted:#8b97ad;--border:rgba(140,170,220,.14)}
-*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,system-ui,sans-serif;display:flex}
-aside{width:250px;flex:none;border-right:1px solid var(--border);padding:14px;color:var(--muted);background:#070a14}
-aside div{padding:6px 8px;border-radius:8px}aside .on{background:rgba(120,160,255,.1);color:var(--fg)}
-main{flex:1;min-width:0;display:flex;flex-direction:column;background:var(--bg)}
+/* A small copy of the T3 Code chat window. Colours come from variables that applyColors() fills from the theme's roles. */
+:root{--chat-content-max-width:46rem;--canvas:#0a0d14;--text:#e6edf7;--muted:#8b97ad;--border:rgba(140,170,220,.14);--sidebar:#070a14;--sidebar-text:#e6edf7;--sidebar-muted:#8b97ad;--row:rgba(120,160,255,.1);
+  --bubble:#141c2e;--bubble-text:#e6edf7;--code:#0a1020;--code-text:#b9c7e6;--card:#0c1222;--send:#8fd3ff;--send-text:#04121a;--accent:#8fd3ff;--stop:#e5484d}
+:root:not(.dark){--canvas:#ffffff;--text:#16242a;--muted:#5b6b70;--border:rgba(0,40,40,.14);--sidebar:#f3f5f6;--sidebar-text:#16242a;--sidebar-muted:#5b6b70;--row:rgba(0,60,80,.08);
+  --bubble:#f1f3f4;--bubble-text:#16242a;--code:#f6f8fa;--code-text:#23404a;--card:#ffffff;--send:#1b4ed8;--send-text:#ffffff;--accent:#1b4ed8}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:var(--canvas);color:var(--text);font:14px/1.55 -apple-system,system-ui,sans-serif;display:flex}
+aside{width:250px;flex:none;border-right:1px solid var(--border);padding:14px;color:var(--sidebar-muted);background:var(--sidebar)}
+aside div{padding:6px 8px;border-radius:8px}aside .on{background:var(--row);color:var(--sidebar-text)}
+main{flex:1;min-width:0;display:flex;flex-direction:column;background:var(--canvas)}
 [data-chat-header]{height:44px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid var(--border);font-weight:600}
-.messages-timeline-scroll{flex:1;overflow:auto;padding:24px 48px;background:var(--bg)}
+.messages-timeline-scroll{flex:1;overflow:auto;padding:24px 48px;background:var(--canvas)}
 .col{max-width:var(--chat-content-max-width);margin:0 auto}
-[data-user-message-bubble]{margin:10px 0 18px auto;width:fit-content;max-width:80%;padding:8px 14px;border-radius:16px;background:#111a2e;border:1px solid var(--border)}
-pre{background:#0a1020;border:1px solid var(--border);border-radius:10px;padding:12px;font:12.5px/1.5 ui-monospace,Menlo,monospace;color:#b9c7e6}
+b{color:var(--text)}a{color:var(--accent)}
+[data-user-message-bubble]{margin:10px 0 18px auto;width:fit-content;max-width:80%;padding:8px 14px;border-radius:16px;background:var(--bubble);color:var(--bubble-text);border:1px solid var(--border)}
+pre{background:var(--code);border:1px solid var(--border);border-radius:10px;padding:12px;font:12.5px/1.5 ui-monospace,Menlo,monospace;color:var(--code-text)}
 .work{color:var(--muted);font-size:13px;margin:8px 0}
-form{padding:0 48px 18px;width:100%}[data-slot="composer-host"]{max-width:var(--chat-content-max-width);margin:0 auto;border:1px solid var(--border);border-radius:18px;padding:14px 14px 10px;background:#0c1222}
+form{padding:0 48px 18px;width:100%}[data-slot="composer-host"]{max-width:var(--chat-content-max-width);margin:0 auto;border:1px solid var(--border);border-radius:18px;padding:14px 14px 10px;background:var(--card)}
 .ph{color:var(--muted);height:44px}.row{display:flex;align-items:center;gap:10px;justify-content:flex-end}.row span{color:var(--muted);margin-right:auto;font-size:13px}
 button{border:0;width:32px;height:32px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.stop{background:rgba(229,72,77,.9);color:#fff;box-shadow:0 1px 2px rgba(229,72,77,.24)}.send{background:#8fd3ff;color:#04121a}
+.stop{background:var(--stop);color:#fff}.send{background:var(--send);color:var(--send-text)}
 </style></head><body>
-<script>if(location.search.includes("light")){document.documentElement.classList.remove("dark");const st=document.documentElement.style;for(const [k,v] of Object.entries({"--bg":"#eef5f3","--fg":"#16242a","--muted":"#5b6b70","--border":"rgba(0,40,40,.14)"}))st.setProperty(k,v);document.head.insertAdjacentHTML("beforeend","<style>aside{background:#e3eeea!important}aside .on{background:rgba(0,90,80,.1)!important}pre{background:#f6fbfa!important;color:#23404a!important}[data-user-message-bubble]{background:#fff}[data-slot=composer-host]{background:#fff}</style>")}</script><aside data-slot="sidebar"><div class="on" data-thread-item>Theme preview</div><div>Fix flaky checkout test</div><div>Android: slim emulator</div><div>PR 4821 review</div><div>Weekly notes</div></aside>
+<script>if(location.search.includes("light"))document.documentElement.classList.remove("dark");</script><aside data-slot="sidebar"><div class="on" data-thread-item>Theme preview</div><div>Fix flaky checkout test</div><div>Android: slim emulator</div><div>PR 4821 review</div><div>Weekly notes</div></aside>
 <main data-workspace-area="conversation">
 <div data-chat-header>Theme preview</div>
 <div class="messages-timeline-scroll"><div class="col">
@@ -39,6 +44,17 @@ button{border:0;width:32px;height:32px;border-radius:999px;display:flex;align-it
 // whose value has a backslash, image-set(), src(), or a url() that is not a data: address or a #id.
 // applyTheme returns the names of the removed properties; a good theme returns an empty list.
 function refuses(value) { return value.includes('\\') || /image-set\(|\bsrc\(/i.test(value) || /url\((?![ \t\n\f\r]*["']?(?:data:|#))/i.test(value); }
+// Fill the page's colours from the theme: the roles of the shown mode, with canvas and accent as a base.
+// A real T3 Code derives a full palette from canvas and accent; this page only uses the roles it shows.
+function applyColors(theme, mode) {
+  const roles = { ...(mode === theme.appearance ? { canvas: theme.canvas, accent: theme.accent, ...theme.colors } : theme.variants && theme.variants[mode]) };
+  const set = (name, ...keys) => { const v = keys.map(k => roles[k]).find(Boolean); if (v) document.documentElement.style.setProperty(name, v); };
+  set('--canvas', 'canvas'); set('--text', 'text'); set('--muted', 'textMuted', 'mutedForeground'); set('--border', 'border');
+  set('--sidebar', 'sidebar'); set('--sidebar-text', 'sidebarForeground', 'text'); set('--sidebar-muted', 'sidebarMutedForeground', 'textMuted'); set('--row', 'sidebarRowSelected', 'sidebarRowActive');
+  set('--bubble', 'messageSurface', 'surfaceRaised', 'surface'); set('--bubble-text', 'messageForeground', 'text');
+  set('--code', 'codeBackground', 'surface'); set('--code-text', 'codeForeground', 'text'); set('--card', 'surfaceRaised', 'surface', 'input');
+  set('--send', 'messageAction', 'accent'); set('--send-text', 'messageActionForeground', 'accentForeground'); set('--accent', 'accent'); set('--stop', 'error');
+}
 function applyTheme(css) {
   const sheet = new CSSStyleSheet(), removed = [];
   sheet.replaceSync(css);

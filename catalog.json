@@ -1,6 +1,27 @@
 {
   "themes": [
     {
+      "id": "dracula",
+      "name": "Dracula",
+      "author": "dracula",
+      "description": "The Dracula dark theme for T3 Code, from the Dracula Theme project.",
+      "tags": [],
+      "modes": {
+        "dark": {
+          "canvas": "#282a36",
+          "accent": "#bd93f9"
+        }
+      },
+      "preview": "themes/dracula/preview.png",
+      "source": {
+        "repo": "dracula/t3code",
+        "license": "MIT"
+      },
+      "file": "themes/dracula/theme.json",
+      "folder": "themes/dracula",
+      "links": {}
+    },
+    {
       "id": "koi-pond",
       "name": "Koi Pond",
       "author": "Dwite",
@@ -20,12 +41,764 @@
         }
       },
       "preview": "themes/koi-pond/preview.png",
-      "previewLight": "themes/koi-pond/preview-light.png",
+      "previewAlt": "themes/koi-pond/preview-light.png",
       "file": "themes/koi-pond/theme.json",
       "folder": "themes/koi-pond",
       "links": {
         "Settings page": "themes/koi-pond/studio.html"
       }
+    },
+    {
+      "id": "nous",
+      "name": "Nous",
+      "author": "soya-miruku",
+      "description": "GitHub-style light and dark chrome with a Nous-blue accent. From the Hermes Desktop skin of the same name.",
+      "tags": [],
+      "modes": {
+        "light": {
+          "canvas": "oklch(1 0 0)",
+          "accent": "oklch(0.527888 0.259435 262.738)"
+        },
+        "dark": {
+          "canvas": "oklch(0.176285 0.014021 258.357)",
+          "accent": "oklch(0.638039 0.191781 262.989)"
+        }
+      },
+      "preview": "themes/nous/preview.png",
+      "previewAlt": "themes/nous/preview-dark.png",
+      "source": {
+        "repo": "soya-miruku/t3code-themes",
+        "license": "MIT"
+      },
+      "file": "themes/nous/theme.json",
+      "folder": "themes/nous",
+      "links": {}
+    },
+    {
+      "id": "nous-alt",
+      "name": "Nous Alt",
+      "author": "soya-miruku",
+      "description": "Cream on mission blue in dark mode, glass neutrals with brand blue in light mode. From the Hermes Desktop skin.",
+      "tags": [],
+      "modes": {
+        "light": {
+          "canvas": "oklch(0.985006 0.006974 268.549)",
+          "accent": "oklch(0.527888 0.259435 262.738)"
+        },
+        "dark": {
+          "canvas": "oklch(0.346536 0.150509 263.827)",
+          "accent": "oklch(0.938317 0.044949 69.389)"
+        }
+      },
+      "preview": "themes/nous-alt/preview.png",
+      "previewAlt": "themes/nous-alt/preview-dark.png",
+      "source": {
+        "repo": "soya-miruku/t3code-themes",
+        "license": "MIT"
+      },
+      "file": "themes/nous-alt/theme.json",
+      "folder": "themes/nous-alt",
+      "links": {}
+    },
+    {
+      "id": "omarchy-artemis",
+      "name": "Omarchy — Artemis",
+      "author": "rblalock",
+      "description": "The Artemis palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.172851 0.034314 269.459)",
+          "accent": "oklch(0.50462 0.033008 270.012)"
+        }
+      },
+      "preview": "themes/omarchy-artemis/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-artemis/theme.json",
+      "folder": "themes/omarchy-artemis",
+      "links": {}
+    },
+    {
+      "id": "omarchy-blackturq",
+      "name": "Omarchy — Blackturq",
+      "author": "rblalock",
+      "description": "The Blackturq palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.144788 0 0)",
+          "accent": "oklch(0.563599 0.037813 189.166)"
+        }
+      },
+      "preview": "themes/omarchy-blackturq/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-blackturq/theme.json",
+      "folder": "themes/omarchy-blackturq",
+      "links": {}
+    },
+    {
+      "id": "omarchy-catppuccin",
+      "name": "Omarchy — Catppuccin",
+      "author": "rblalock",
+      "description": "The Catppuccin palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.242867 0.030357 283.911)",
+          "accent": "oklch(0.52203 0.072931 264.031)"
+        }
+      },
+      "preview": "themes/omarchy-catppuccin/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-catppuccin/theme.json",
+      "folder": "themes/omarchy-catppuccin",
+      "links": {}
+    },
+    {
+      "id": "omarchy-catppuccin-latte",
+      "name": "Omarchy — Catppuccin Latte",
+      "author": "rblalock",
+      "description": "The Catppuccin Latte palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "light": {
+          "canvas": "oklch(0.957761 0.005767 264.532)",
+          "accent": "oklch(0.743633 0.115132 263.504)"
+        }
+      },
+      "preview": "themes/omarchy-catppuccin-latte/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-catppuccin-latte/theme.json",
+      "folder": "themes/omarchy-catppuccin-latte",
+      "links": {}
+    },
+    {
+      "id": "omarchy-ethereal",
+      "name": "Omarchy — Ethereal",
+      "author": "rblalock",
+      "description": "The Ethereal palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.156788 0.041282 268.905)",
+          "accent": "oklch(0.419438 0.087859 277.815)"
+        }
+      },
+      "preview": "themes/omarchy-ethereal/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-ethereal/theme.json",
+      "folder": "themes/omarchy-ethereal",
+      "links": {}
+    },
+    {
+      "id": "omarchy-everforest",
+      "name": "Omarchy — Everforest",
+      "author": "rblalock",
+      "description": "The Everforest palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.32387 0.01528 240.422)",
+          "accent": "oklch(0.546548 0.038716 193.791)"
+        }
+      },
+      "preview": "themes/omarchy-everforest/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-everforest/theme.json",
+      "folder": "themes/omarchy-everforest",
+      "links": {}
+    },
+    {
+      "id": "omarchy-flexoki-light",
+      "name": "Omarchy — Flexoki Light",
+      "author": "rblalock",
+      "description": "The Flexoki Light palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "light": {
+          "canvas": "oklch(0.990123 0.016076 95.219)",
+          "accent": "oklch(0.735589 0.054764 248.576)"
+        }
+      },
+      "preview": "themes/omarchy-flexoki-light/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-flexoki-light/theme.json",
+      "folder": "themes/omarchy-flexoki-light",
+      "links": {}
+    },
+    {
+      "id": "omarchy-gruvbox",
+      "name": "Omarchy — Gruvbox",
+      "author": "rblalock",
+      "description": "The Gruvbox palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.276848 0 0)",
+          "accent": "oklch(0.50689 0.029538 180.916)"
+        }
+      },
+      "preview": "themes/omarchy-gruvbox/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-gruvbox/theme.json",
+      "folder": "themes/omarchy-gruvbox",
+      "links": {}
+    },
+    {
+      "id": "omarchy-hackerman",
+      "name": "Omarchy — Hackerman",
+      "author": "rblalock",
+      "description": "The Hackerman palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.158727 0.021265 279.275)",
+          "accent": "oklch(0.559978 0.092503 151.941)"
+        }
+      },
+      "preview": "themes/omarchy-hackerman/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-hackerman/theme.json",
+      "folder": "themes/omarchy-hackerman",
+      "links": {}
+    },
+    {
+      "id": "omarchy-kanagawa",
+      "name": "Omarchy — Kanagawa",
+      "author": "rblalock",
+      "description": "The Kanagawa palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.243319 0.017046 285.064)",
+          "accent": "oklch(0.582532 0.015367 93.089)"
+        }
+      },
+      "preview": "themes/omarchy-kanagawa/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-kanagawa/theme.json",
+      "folder": "themes/omarchy-kanagawa",
+      "links": {}
+    },
+    {
+      "id": "omarchy-last-horizon",
+      "name": "Omarchy — Last Horizon",
+      "author": "rblalock",
+      "description": "The Last Horizon palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.151269 0.002692 325.709)",
+          "accent": "oklch(0.450061 0.022003 30.424)"
+        }
+      },
+      "preview": "themes/omarchy-last-horizon/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-last-horizon/theme.json",
+      "folder": "themes/omarchy-last-horizon",
+      "links": {}
+    },
+    {
+      "id": "omarchy-lumon",
+      "name": "Omarchy — Lumon",
+      "author": "rblalock",
+      "description": "The Lumon palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.251874 0.025729 237.347)",
+          "accent": "oklch(0.549077 0.053881 233.256)"
+        }
+      },
+      "preview": "themes/omarchy-lumon/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-lumon/theme.json",
+      "folder": "themes/omarchy-lumon",
+      "links": {}
+    },
+    {
+      "id": "omarchy-lupine",
+      "name": "Omarchy — Lupine",
+      "author": "rblalock",
+      "description": "The Lupine palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "light": {
+          "canvas": "oklch(0.985104 0 0)",
+          "accent": "oklch(0.760573 0.100734 268.24)"
+        }
+      },
+      "preview": "themes/omarchy-lupine/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-lupine/theme.json",
+      "folder": "themes/omarchy-lupine",
+      "links": {}
+    },
+    {
+      "id": "omarchy-mars",
+      "name": "Omarchy — Mars",
+      "author": "rblalock",
+      "description": "The Mars palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0 0 0)",
+          "accent": "oklch(0.430782 0.106795 34.321)"
+        }
+      },
+      "preview": "themes/omarchy-mars/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-mars/theme.json",
+      "folder": "themes/omarchy-mars",
+      "links": {}
+    },
+    {
+      "id": "omarchy-matte-black",
+      "name": "Omarchy — Matte Black",
+      "author": "rblalock",
+      "description": "The Matte Black palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.182204 0 0)",
+          "accent": "oklch(0.469855 0.09499 70.387)"
+        }
+      },
+      "preview": "themes/omarchy-matte-black/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-matte-black/theme.json",
+      "folder": "themes/omarchy-matte-black",
+      "links": {}
+    },
+    {
+      "id": "omarchy-miasma",
+      "name": "Omarchy — Miasma",
+      "author": "rblalock",
+      "description": "The Miasma palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.251965 0 0)",
+          "accent": "oklch(0.426321 0.04263 116.778)"
+        }
+      },
+      "preview": "themes/omarchy-miasma/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-miasma/theme.json",
+      "folder": "themes/omarchy-miasma",
+      "links": {}
+    },
+    {
+      "id": "omarchy-nagai-poolside",
+      "name": "Omarchy — Nagai Poolside",
+      "author": "rblalock",
+      "description": "The Nagai Poolside palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.214323 0.021951 234.794)",
+          "accent": "oklch(0.482742 0.065599 231.569)"
+        }
+      },
+      "preview": "themes/omarchy-nagai-poolside/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-nagai-poolside/theme.json",
+      "folder": "themes/omarchy-nagai-poolside",
+      "links": {}
+    },
+    {
+      "id": "omarchy-nord",
+      "name": "Omarchy — Nord",
+      "author": "rblalock",
+      "description": "The Nord palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.324374 0.022945 264.182)",
+          "accent": "oklch(0.520678 0.041762 252.338)"
+        }
+      },
+      "preview": "themes/omarchy-nord/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-nord/theme.json",
+      "folder": "themes/omarchy-nord",
+      "links": {}
+    },
+    {
+      "id": "omarchy-osaka-jade",
+      "name": "Omarchy — Osaka Jade",
+      "author": "rblalock",
+      "description": "The Osaka Jade palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.214323 0.017691 170.074)",
+          "accent": "oklch(0.42586 0.053201 164.368)"
+        }
+      },
+      "preview": "themes/omarchy-osaka-jade/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-osaka-jade/theme.json",
+      "folder": "themes/omarchy-osaka-jade",
+      "links": {}
+    },
+    {
+      "id": "omarchy-retro-82",
+      "name": "Omarchy — Retro 82",
+      "author": "rblalock",
+      "description": "The Retro 82 palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.206944 0.050792 253.277)",
+          "accent": "oklch(0.518379 0.052142 56.64)"
+        }
+      },
+      "preview": "themes/omarchy-retro-82/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-retro-82/theme.json",
+      "folder": "themes/omarchy-retro-82",
+      "links": {}
+    },
+    {
+      "id": "omarchy-ristretto",
+      "name": "Omarchy — Ristretto",
+      "author": "rblalock",
+      "description": "The Ristretto palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.272333 0.010552 17.818)",
+          "accent": "oklch(0.52198 0.076553 35.029)"
+        }
+      },
+      "preview": "themes/omarchy-ristretto/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-ristretto/theme.json",
+      "folder": "themes/omarchy-ristretto",
+      "links": {}
+    },
+    {
+      "id": "omarchy-rose-pine",
+      "name": "Omarchy — Rose Pine",
+      "author": "rblalock",
+      "description": "The Rose Pine palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "light": {
+          "canvas": "oklch(0.969872 0.011322 71.9)",
+          "accent": "oklch(0.800125 0.030385 201.849)"
+        }
+      },
+      "preview": "themes/omarchy-rose-pine/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-rose-pine/theme.json",
+      "folder": "themes/omarchy-rose-pine",
+      "links": {}
+    },
+    {
+      "id": "omarchy-solitude",
+      "name": "Omarchy — Solitude",
+      "author": "rblalock",
+      "description": "The Solitude palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.184347 0.006271 236.946)",
+          "accent": "oklch(0.405978 0.009381 241.87)"
+        }
+      },
+      "preview": "themes/omarchy-solitude/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-solitude/theme.json",
+      "folder": "themes/omarchy-solitude",
+      "links": {}
+    },
+    {
+      "id": "omarchy-tac-1",
+      "name": "Omarchy — TAC 1",
+      "author": "rblalock",
+      "description": "The TAC 1 palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.100444 0.020885 233.508)",
+          "accent": "oklch(0.390008 0.115324 268.179)"
+        }
+      },
+      "preview": "themes/omarchy-tac-1/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-tac-1/theme.json",
+      "folder": "themes/omarchy-tac-1",
+      "links": {}
+    },
+    {
+      "id": "omarchy-tac-usa",
+      "name": "Omarchy — TAC USA",
+      "author": "rblalock",
+      "description": "The TAC USA palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.172851 0.034314 269.459)",
+          "accent": "oklch(0.50462 0.033008 270.012)"
+        }
+      },
+      "preview": "themes/omarchy-tac-usa/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-tac-usa/theme.json",
+      "folder": "themes/omarchy-tac-usa",
+      "links": {}
+    },
+    {
+      "id": "omarchy-tokyo-night",
+      "name": "Omarchy — Tokyo Night",
+      "author": "rblalock",
+      "description": "The Tokyo Night palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0.226288 0.021374 280.487)",
+          "accent": "oklch(0.489968 0.081631 265.498)"
+        }
+      },
+      "preview": "themes/omarchy-tokyo-night/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-tokyo-night/theme.json",
+      "folder": "themes/omarchy-tokyo-night",
+      "links": {}
+    },
+    {
+      "id": "omarchy-vantablack",
+      "name": "Omarchy — Vantablack",
+      "author": "rblalock",
+      "description": "The Vantablack palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "oklch(0 0 0)",
+          "accent": "oklch(0.397927 0 0)"
+        }
+      },
+      "preview": "themes/omarchy-vantablack/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-vantablack/theme.json",
+      "folder": "themes/omarchy-vantablack",
+      "links": {}
+    },
+    {
+      "id": "omarchy-white",
+      "name": "Omarchy — White",
+      "author": "rblalock",
+      "description": "The White palette from Omarchy, as a T3 Code theme.",
+      "tags": [
+        "omarchy"
+      ],
+      "modes": {
+        "light": {
+          "canvas": "oklch(1 0 0)",
+          "accent": "oklch(0.776274 0 0)"
+        }
+      },
+      "preview": "themes/omarchy-white/preview.png",
+      "source": {
+        "repo": "rblalock/t3code-omarchy-themes",
+        "license": "MIT"
+      },
+      "file": "themes/omarchy-white/theme.json",
+      "folder": "themes/omarchy-white",
+      "links": {}
+    },
+    {
+      "id": "vertical",
+      "name": "Vertical",
+      "author": "LuiiHer",
+      "description": "Liquid-glass gradients in the style of Arc Browser: emerald glass in dark mode, coral sunset in light mode.",
+      "tags": [
+        "glass"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "#0f1715",
+          "accent": "#2dd4bf"
+        },
+        "light": {
+          "canvas": "#fff6f6",
+          "accent": "#ff5454"
+        }
+      },
+      "preview": "themes/vertical/preview.png",
+      "previewAlt": "themes/vertical/preview-light.png",
+      "source": {
+        "repo": "LuiiHer/t3code-themes",
+        "license": "MIT"
+      },
+      "file": "themes/vertical/theme.json",
+      "folder": "themes/vertical",
+      "links": {}
+    },
+    {
+      "id": "vertical-frost",
+      "name": "Vertical Frost",
+      "author": "LuiiHer",
+      "description": "Liquid-glass gradients in the style of Arc Browser: icy cyan glass in light mode, arctic midnight in dark mode.",
+      "tags": [
+        "glass"
+      ],
+      "modes": {
+        "light": {
+          "canvas": "#f0fdfa",
+          "accent": "#0284c7"
+        },
+        "dark": {
+          "canvas": "#0b121e",
+          "accent": "#38bdf8"
+        }
+      },
+      "preview": "themes/vertical-frost/preview.png",
+      "previewAlt": "themes/vertical-frost/preview-dark.png",
+      "source": {
+        "repo": "LuiiHer/t3code-themes",
+        "license": "MIT"
+      },
+      "file": "themes/vertical-frost/theme.json",
+      "folder": "themes/vertical-frost",
+      "links": {}
     }
   ],
   "elsewhere": [

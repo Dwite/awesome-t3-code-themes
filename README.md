@@ -7,9 +7,42 @@ Themes for [T3 Code](https://t3.codes), tools to make and check them, and links 
 ## Themes in this repository
 
 <!-- catalog:themes -->
-| Theme | Preview | What it is |
-|---|---|---|
-| [Koi Pond](themes/koi-pond) by Dwite | [![Koi Pond](themes/koi-pond/preview.png)](themes/koi-pond) | An animated pixel-art koi pond behind the chat. Koi bend through turns and swing their tails. 33 settings: scenes, plants, weather, time of day. Light and dark mode. [Settings page](https://dwite.github.io/awesome-t3-code-themes/themes/koi-pond/studio.html). |
+| Theme | By | Modes | What it is |
+|---|---|---|---|
+| [Dracula](themes/dracula) | dracula, from [dracula/t3code](https://github.com/dracula/t3code) (MIT) | dark | The Dracula dark theme for T3 Code, from the Dracula Theme project. |
+| [Koi Pond](themes/koi-pond) | Dwite | dark + light | An animated pixel-art koi pond behind the chat. Koi bend through turns and swing their tails. 33 settings: scenes, plants, weather, time of day. [Settings page](https://dwite.github.io/awesome-t3-code-themes/themes/koi-pond/studio.html). |
+| [Nous](themes/nous) | soya-miruku, from [soya-miruku/t3code-themes](https://github.com/soya-miruku/t3code-themes) (MIT) | light + dark | GitHub-style light and dark chrome with a Nous-blue accent. From the Hermes Desktop skin of the same name. |
+| [Nous Alt](themes/nous-alt) | soya-miruku, from [soya-miruku/t3code-themes](https://github.com/soya-miruku/t3code-themes) (MIT) | light + dark | Cream on mission blue in dark mode, glass neutrals with brand blue in light mode. From the Hermes Desktop skin. |
+| [Omarchy — Artemis](themes/omarchy-artemis) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Artemis palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Blackturq](themes/omarchy-blackturq) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Blackturq palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Catppuccin](themes/omarchy-catppuccin) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Catppuccin palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Catppuccin Latte](themes/omarchy-catppuccin-latte) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | light | The Catppuccin Latte palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Ethereal](themes/omarchy-ethereal) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Ethereal palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Everforest](themes/omarchy-everforest) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Everforest palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Flexoki Light](themes/omarchy-flexoki-light) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | light | The Flexoki Light palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Gruvbox](themes/omarchy-gruvbox) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Gruvbox palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Hackerman](themes/omarchy-hackerman) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Hackerman palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Kanagawa](themes/omarchy-kanagawa) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Kanagawa palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Last Horizon](themes/omarchy-last-horizon) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Last Horizon palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Lumon](themes/omarchy-lumon) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Lumon palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Lupine](themes/omarchy-lupine) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | light | The Lupine palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Mars](themes/omarchy-mars) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Mars palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Matte Black](themes/omarchy-matte-black) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Matte Black palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Miasma](themes/omarchy-miasma) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Miasma palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Nagai Poolside](themes/omarchy-nagai-poolside) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Nagai Poolside palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Nord](themes/omarchy-nord) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Nord palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Osaka Jade](themes/omarchy-osaka-jade) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Osaka Jade palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Retro 82](themes/omarchy-retro-82) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Retro 82 palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Ristretto](themes/omarchy-ristretto) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Ristretto palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Rose Pine](themes/omarchy-rose-pine) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | light | The Rose Pine palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Solitude](themes/omarchy-solitude) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Solitude palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — TAC 1](themes/omarchy-tac-1) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The TAC 1 palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — TAC USA](themes/omarchy-tac-usa) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The TAC USA palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Tokyo Night](themes/omarchy-tokyo-night) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Tokyo Night palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — Vantablack](themes/omarchy-vantablack) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | dark | The Vantablack palette from Omarchy, as a T3 Code theme. |
+| [Omarchy — White](themes/omarchy-white) | rblalock, from [rblalock/t3code-omarchy-themes](https://github.com/rblalock/t3code-omarchy-themes) (MIT) | light | The White palette from Omarchy, as a T3 Code theme. |
+| [Vertical](themes/vertical) | LuiiHer, from [LuiiHer/t3code-themes](https://github.com/LuiiHer/t3code-themes) (MIT) | dark + light | Liquid-glass gradients in the style of Arc Browser: emerald glass in dark mode, coral sunset in light mode. |
+| [Vertical Frost](themes/vertical-frost) | LuiiHer, from [LuiiHer/t3code-themes](https://github.com/LuiiHer/t3code-themes) (MIT) | light + dark | Liquid-glass gradients in the style of Arc Browser: icy cyan glass in light mode, arctic midnight in dark mode. |
 <!-- /catalog:themes -->
 
 ## Install a theme
@@ -34,7 +67,7 @@ New themes, fixes, and links are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md
 
 ## Themes elsewhere
 
-Found by a GitHub search on 2026-11-14. Not reviewed here.
+Found by a GitHub search on 2026-11-14. Repositories with a license that allows it are also imported above; the others are links only.
 
 <!-- catalog:elsewhere -->
 - [t3themes.com](https://t3themes.com) ([SunkenInTime/t3-themes](https://github.com/SunkenInTime/t3-themes)): The community theme gallery, with previews from the real app. Themes come in by pull request.
@@ -49,6 +82,8 @@ Found by a GitHub search on 2026-11-14. Not reviewed here.
 - [gerardthehuman themes](https://github.com/gerardthehuman/t3-code-themes): Light and dark themes, with an agent skill to create themes.
 <!-- /catalog:elsewhere -->
 
-## License
+## License and credit
 
 [MIT](LICENSE). This project is not part of T3 Code.
+
+Some themes come from other repositories, under their own licenses. [third-party/](third-party) lists each source, its license and what was changed.

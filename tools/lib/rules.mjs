@@ -2,14 +2,16 @@
 const ROLES = new Set('canvas chrome toolbar toolbarForeground toolbarBorder toolbarControl toolbarControlForeground toolbarControlHover surface surfaceRaised surfaceOverlay text textMuted border input focus accent accentForeground secondary secondaryForeground muted mutedForeground placeholder secondaryLabel iconMuted error errorForeground errorSurface warning warningForeground warningSurface update updateForeground updateSurface accentSurface accentSurfaceForeground messageSurface messageForeground messageAction messageActionForeground messageActionHover codeBackground codeForeground searchMatchBackground searchMatchForeground searchMatchActiveBackground searchMatchActiveForeground sidebar sidebarForeground sidebarMutedForeground sidebarControlSurface sidebarRowHover sidebarRowActive sidebarRowSelected sidebarBorder terminalBackground terminalForeground terminalCursor terminalSelection terminalScrollbar terminalScrollbarHover'.split(' '));
 export const BUILT_IN = new Set(['t3-chat', 'grove', 'ocean', 'ember', 'iris']);
 const KEYS = new Set(['version', 'name', 'appearance', 'canvas', 'accent', 'colors', 'variants', 'css']);
-const HEX = /^#[0-9a-fA-F]{6}$/;
+// canvas and accent must be #rgb or #rrggbb. A colour role takes any literal CSS colour of at most 64 characters.
+const HEX = /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
+const COLOUR = /^(?:#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})|(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\([^()]{1,56}\)|[a-zA-Z]{3,20})$/;
 export const LIMITS = { css: 20000, file: 32768, name: 48, preview: 600000 };
 
 function colorMap(map, where, bad) {
-  if (map === null || typeof map !== 'object' || Array.isArray(map)) return bad.push(`${where} must be an object of role: "#rrggbb"`);
+  if (map === null || typeof map !== 'object' || Array.isArray(map)) return bad.push(`${where} must be an object of role: colour`);
   for (const [role, value] of Object.entries(map)) {
     if (!ROLES.has(role)) bad.push(`${where}.${role} is not a colour role (a nested object here makes T3 Code drop the file)`);
-    else if (typeof value !== 'string' || !HEX.test(value)) bad.push(`${where}.${role} must be "#rrggbb"`);
+    else if (typeof value !== 'string' || value.length > 64 || !COLOUR.test(value.trim())) bad.push(`${where}.${role} must be a literal CSS colour such as "#rrggbb" or "oklch(0.6 0.1 200)", at most 64 characters`);
   }
 }
 
@@ -20,7 +22,7 @@ export function checkTheme(theme, bytes) {
   if (theme.version !== 1) bad.push('version must be 1');
   if (typeof theme.name !== 'string' || !theme.name.trim() || theme.name.length > LIMITS.name) bad.push(`name must be 1 to ${LIMITS.name} characters`);
   if (theme.appearance !== 'light' && theme.appearance !== 'dark') bad.push('appearance must be "light" or "dark"');
-  for (const key of ['canvas', 'accent']) if (theme[key] !== undefined && !(typeof theme[key] === 'string' && HEX.test(theme[key]))) bad.push(`${key} must be "#rrggbb"`);
+  for (const key of ['canvas', 'accent']) if (theme[key] !== undefined && !(typeof theme[key] === 'string' && HEX.test(theme[key]))) bad.push(`${key} must be "#rgb" or "#rrggbb"`);
   if (theme.colors !== undefined) colorMap(theme.colors, 'colors', bad);
   if (theme.variants !== undefined) {
     if (theme.variants === null || typeof theme.variants !== 'object') bad.push('variants must be an object');

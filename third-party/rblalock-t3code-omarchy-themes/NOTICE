@@ -1,0 +1,61 @@
+Omarchy themes for T3 Code
+
+This project generates T3 Code-importable color theme files from Omarchy source palettes.
+
+Omarchy
+Source: https://github.com/basecamp/omarchy
+Copyright (c) David Heinemeier Hansson
+License: MIT
+
+Artemis and Mars themes
+Sources: https://github.com/steve-lohmeyer/omarchy-artemis-theme
+         https://github.com/steve-lohmeyer/omarchy-mars-theme
+Copyright (c) 2026 Steve Lohmeyer (Artemis)
+Copyright (c) 2025 Steve Lohmeyer (Mars)
+License: MIT
+
+Blackturq theme
+Source: https://github.com/HANCORE-linux/omarchy-blackturq-theme
+Copyright (c) 2025 HANCORE
+License: MIT
+
+Nagai Poolside theme
+Source: https://github.com/mwaltzer/omarchy-nagai-poolside-theme
+Copyright (c) 2025 mcw
+License: MIT
+
+TAC 1, TAC USA, and local community palette refinements
+Copyright (c) 2026 Rick Blalock
+License: MIT
+
+TAC 1 was generated with Aether. TAC USA is based on Steve Lohmeyer's MIT-licensed Artemis palette.
+The Mars palette includes local green and cyan contrast refinements by Rick Blalock.
+
+T3 Code
+Source: https://github.com/pingdotgg/t3code
+Copyright (c) 2026 T3 Tools Inc.
+License: MIT
+
+The T3 Code source is referenced for file-format compatibility. No T3 Code source file is copied
+into this repository.
+
+The following MIT permission and warranty terms apply separately to each MIT-licensed work and
+copyright notice above:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

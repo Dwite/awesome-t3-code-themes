@@ -1,0 +1,13 @@
+{
+  "author": "LuiiHer",
+  "description": "Liquid-glass gradients in the style of Arc Browser: emerald glass in dark mode, coral sunset in light mode.",
+  "tags": [
+    "glass"
+  ],
+  "source": {
+    "repo": "LuiiHer/t3code-themes",
+    "commit": "11c698c94ef3de407f73711534857f7f8d7e7358",
+    "path": "themes/vertical.json",
+    "license": "MIT"
+  }
+}

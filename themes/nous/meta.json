@@ -1,0 +1,10 @@
+{
+  "author": "soya-miruku",
+  "description": "GitHub-style light and dark chrome with a Nous-blue accent. From the Hermes Desktop skin of the same name.",
+  "source": {
+    "repo": "soya-miruku/t3code-themes",
+    "commit": "7ed04e88e831fff305b923c6e909dadfb26e1f73",
+    "path": "themes/nous.json",
+    "license": "MIT"
+  }
+}
