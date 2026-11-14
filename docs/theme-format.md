@@ -33,6 +33,20 @@ The whole file is at most 32,768 bytes.
 
 **T3 Code drops a file that breaks these rules and gives no message.** The theme is then missing from the list. A nested object where a colour belongs (for example `variants.light.colors`) is enough. Run `node tools/validate.mjs` to find such mistakes.
 
+## Two ways into T3 Code, two shapes
+
+The file above is the shape for the **themes folder**. T3 Code also imports a theme in its settings (Themes, Import theme), and the community gallery [t3themes.com](https://t3themes.com) uses that import shape. They differ:
+
+| | Themes folder (this repository) | Import in settings, and the gallery |
+|---|---|---|
+| `id` | the file name | an `id` field (optional; made from the name) |
+| `canvas`, `accent` | top-level fields; T3 Code derives the other roles from them | roles inside `colors`; nothing is derived |
+| `colors` | optional | required. A role you leave out takes the default T3 Chat colour |
+| `variants` | `light` and `dark` | only the other mode than `appearance` |
+| `css` | applied | the gallery keeps it in the file; a contributor to the gallery reports that T3 Code applies it on import. Not tested here |
+
+To publish a themes-folder theme in the gallery, give `colors` every role. T3 Code's own `createVividThemeColors` (in its `themePalette.ts`) makes the full set from a canvas and an accent. The import shape is read from the T3 Code source that the gallery keeps a copy of, as of 2026-11-14.
+
 ## Colour roles
 
 canvas, chrome, toolbar, toolbarForeground, toolbarBorder, toolbarControl, toolbarControlForeground, toolbarControlHover, surface, surfaceRaised, surfaceOverlay, text, textMuted, border, input, focus, accent, accentForeground, secondary, secondaryForeground, muted, mutedForeground, placeholder, secondaryLabel, iconMuted, error, errorForeground, errorSurface, warning, warningForeground, warningSurface, update, updateForeground, updateSurface, accentSurface, accentSurfaceForeground, messageSurface, messageForeground, messageAction, messageActionForeground, messageActionHover, codeBackground, codeForeground, searchMatchBackground, searchMatchForeground, searchMatchActiveBackground, searchMatchActiveForeground, sidebar, sidebarForeground, sidebarMutedForeground, sidebarControlSurface, sidebarRowHover, sidebarRowActive, sidebarRowSelected, sidebarBorder, terminalBackground, terminalForeground, terminalCursor, terminalSelection, terminalScrollbar, terminalScrollbarHover.

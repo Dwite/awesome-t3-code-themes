@@ -31,7 +31,7 @@ New themes, fixes, and links are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md
 
 Found by a GitHub search on 2026-11-14. Not reviewed here.
 
-- [SunkenInTime/t3-themes](https://github.com/SunkenInTime/t3-themes): a community theme gallery with previews from the real app.
+- [SunkenInTime/t3-themes](https://github.com/SunkenInTime/t3-themes): the community theme gallery at [t3themes.com](https://t3themes.com), with previews from the real app. Themes come in by pull request.
 - [Jonathon-Sherrouse/t3code-pixel-quest](https://github.com/Jonathon-Sherrouse/t3code-pixel-quest): an animated JRPG pixel-art night theme.
 - [dracula/t3code](https://github.com/dracula/t3code): Dracula.
 - [ItriIbouanane/dracula-theme-t3code](https://github.com/ItriIbouanane/dracula-theme-t3code): a Dracula-palette theme.
