@@ -8,5 +8,7 @@
   { "name": "Omarchy themes", "repo": "rblalock/t3code-omarchy-themes", "kind": "collection", "description": "Omarchy themes." },
   { "name": "Liquid glass themes", "repo": "LuiiHer/t3code-themes", "kind": "collection", "description": "Gradient themes in a liquid-glass style." },
   { "name": "soya-miruku themes", "repo": "soya-miruku/t3code-themes", "kind": "collection", "description": "Light and dark themes." },
-  { "name": "gerardthehuman themes", "repo": "gerardthehuman/t3-code-themes", "kind": "collection", "description": "Light and dark themes, with an agent skill to create themes." }
+  { "name": "gerardthehuman themes", "repo": "gerardthehuman/t3-code-themes", "kind": "collection", "description": "Light and dark themes, with an agent skill to create themes." },
+  { "name": "Claude Desktop", "repo": "KevinXC5/t3code-claude-desktop-theme", "kind": "theme", "description": "Warm charcoal and parchment Claude Desktop theme with Anthropic Serif prose, terracotta accents, and 6-tier laser effort pills." },
+  { "name": "Rex", "repo": "KevinXC5/t3code-rex-theme", "kind": "theme", "description": "Rex Terminal-inspired Merino Dark and Light theme with a 12px rounded workspace inset, Liquid Glass borders, and 6-tier comet effort pills." }
 ]
