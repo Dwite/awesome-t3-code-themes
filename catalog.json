@@ -871,6 +871,20 @@
       "kind": "collection",
       "description": "Light and dark themes, with an agent skill to create themes.",
       "url": "https://github.com/gerardthehuman/t3-code-themes"
+    },
+    {
+      "name": "Claude Desktop",
+      "repo": "KevinXC5/t3code-claude-desktop-theme",
+      "kind": "theme",
+      "description": "Warm charcoal and parchment Claude Desktop theme with Anthropic Serif prose, terracotta accents, and 6-tier laser effort pills.",
+      "url": "https://github.com/KevinXC5/t3code-claude-desktop-theme"
+    },
+    {
+      "name": "Rex",
+      "repo": "KevinXC5/t3code-rex-theme",
+      "kind": "theme",
+      "description": "Rex Terminal-inspired Merino Dark and Light theme with a 12px rounded workspace inset, Liquid Glass borders, and 6-tier comet effort pills.",
+      "url": "https://github.com/KevinXC5/t3code-rex-theme"
     }
   ]
 }

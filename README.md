@@ -80,6 +80,8 @@ Found by a GitHub search on 2026-11-14. Repositories with a license that allows 
 - [Liquid glass themes](https://github.com/LuiiHer/t3code-themes): Gradient themes in a liquid-glass style.
 - [soya-miruku themes](https://github.com/soya-miruku/t3code-themes): Light and dark themes.
 - [gerardthehuman themes](https://github.com/gerardthehuman/t3-code-themes): Light and dark themes, with an agent skill to create themes.
+- [Claude Desktop](https://github.com/KevinXC5/t3code-claude-desktop-theme): Warm charcoal and parchment Claude Desktop theme with Anthropic Serif prose, terracotta accents, and 6-tier laser effort pills.
+- [Rex](https://github.com/KevinXC5/t3code-rex-theme): Rex Terminal-inspired Merino Dark and Light theme with a 12px rounded workspace inset, Liquid Glass borders, and 6-tier comet effort pills.
 <!-- /catalog:elsewhere -->
 
 ## License and credit
