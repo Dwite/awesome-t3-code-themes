@@ -1,6 +1,7 @@
 [
   { "name": "t3themes.com", "repo": "SunkenInTime/t3-themes", "url": "https://t3themes.com", "kind": "gallery", "description": "The community theme gallery, with previews from the real app. Themes come in by pull request." },
   { "name": "Pixel Quest", "repo": "Jonathon-Sherrouse/t3code-pixel-quest", "kind": "theme", "description": "An animated JRPG pixel-art night theme." },
+  { "name": "Shadow System", "repo": "ArcticSlayy/shadow-system-t3-theme", "kind": "theme", "description": "An animated Solo Leveling System-window theme. The background reacts to agent work, typing and context fill." },
   { "name": "Dracula", "repo": "dracula/t3code", "kind": "theme", "description": "The Dracula dark theme." },
   { "name": "Dracula palette", "repo": "ItriIbouanane/dracula-theme-t3code", "kind": "theme", "description": "A Dracula-palette theme." },
   { "name": "Poimandres", "repo": "gsimone/poimandres-t3code", "kind": "theme", "description": "The Poimandres theme." },
