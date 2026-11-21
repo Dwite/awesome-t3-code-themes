@@ -817,6 +817,13 @@
       "url": "https://github.com/Jonathon-Sherrouse/t3code-pixel-quest"
     },
     {
+      "name": "Shadow System",
+      "repo": "ArcticSlayy/shadow-system-t3-theme",
+      "kind": "theme",
+      "description": "An animated Solo Leveling System-window theme. The background reacts to agent work, typing and context fill.",
+      "url": "https://github.com/ArcticSlayy/shadow-system-t3-theme"
+    },
+    {
       "name": "Dracula",
       "repo": "dracula/t3code",
       "kind": "theme",

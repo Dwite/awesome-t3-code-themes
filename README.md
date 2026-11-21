@@ -72,6 +72,7 @@ Found by a GitHub search on 2026-11-14. Repositories with a license that allows 
 <!-- catalog:elsewhere -->
 - [t3themes.com](https://t3themes.com) ([SunkenInTime/t3-themes](https://github.com/SunkenInTime/t3-themes)): The community theme gallery, with previews from the real app. Themes come in by pull request.
 - [Pixel Quest](https://github.com/Jonathon-Sherrouse/t3code-pixel-quest): An animated JRPG pixel-art night theme.
+- [Shadow System](https://github.com/ArcticSlayy/shadow-system-t3-theme): An animated Solo Leveling System-window theme. The background reacts to agent work, typing and context fill.
 - [Dracula](https://github.com/dracula/t3code): The Dracula dark theme.
 - [Dracula palette](https://github.com/ItriIbouanane/dracula-theme-t3code): A Dracula-palette theme.
 - [Poimandres](https://github.com/gsimone/poimandres-t3code): The Poimandres theme.
