@@ -49,6 +49,29 @@
       }
     },
     {
+      "id": "neo-terminal-1999",
+      "name": "Neo's Terminal 1999",
+      "author": "rgolbs",
+      "description": "1999 CRT phosphor terminal with scanlines, falling katakana Matrix rain, and 'Wake up, Neo...' intro.",
+      "tags": [
+        "animated",
+        "crt",
+        "matrix",
+        "terminal",
+        "retro"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "#000000",
+          "accent": "#00ff41"
+        }
+      },
+      "preview": "themes/neo-terminal-1999/preview.png",
+      "file": "themes/neo-terminal-1999/theme.json",
+      "folder": "themes/neo-terminal-1999",
+      "links": {}
+    },
+    {
       "id": "nous",
       "name": "Nous",
       "author": "soya-miruku",
@@ -742,6 +765,29 @@
       },
       "file": "themes/omarchy-white/theme.json",
       "folder": "themes/omarchy-white",
+      "links": {}
+    },
+    {
+      "id": "shipibo-kene-overdrive",
+      "name": "Shipibo Kené Overdrive",
+      "author": "rgolbs",
+      "description": "Sacred Shipibo Kené geometric tapestry on deep cosmic violet with cyan, magenta, and gold.",
+      "tags": [
+        "animated",
+        "geometric",
+        "purple",
+        "neon",
+        "dark"
+      ],
+      "modes": {
+        "dark": {
+          "canvas": "#07030f",
+          "accent": "#c084fc"
+        }
+      },
+      "preview": "themes/shipibo-kene-overdrive/preview.png",
+      "file": "themes/shipibo-kene-overdrive/theme.json",
+      "folder": "themes/shipibo-kene-overdrive",
       "links": {}
     },
     {
